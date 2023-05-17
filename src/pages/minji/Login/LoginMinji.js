@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Login() {
+function LoginMinji() {
   return <h1>hi</h1>;
 }
 
-export default Login;
+export default LoginMinji;
