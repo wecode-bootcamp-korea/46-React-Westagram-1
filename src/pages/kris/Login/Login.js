@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Nav() {
+function Login() {
   return <h1>hi</h1>;
 }
 
-export default Nav;
+export default Login;

@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Sample() {
+function Login() {
   return <h1>hi</h1>;
 }
 
-export default Sample;
+export default Login;
