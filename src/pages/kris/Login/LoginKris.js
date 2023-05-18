@@ -17,6 +17,14 @@ function LoginKris() {
 
   const inputIsValid = userId.includes('@') && userPw.trim().length >= 5;
 
+  const [isDisabled, setIsDisabled] = useState('true');
+  const [buttonColor, setButtonColor] = useState('');
+
+  const handleButtonActivation = () => {
+    setIsDisabled(!inputIsValid);
+    setButtonColor(inputIsValid ? '#0995f6' : '');
+  };
+
   return (
     <div className="login">
       <div className="login-container">
@@ -45,8 +53,8 @@ function LoginKris() {
           </div>
           <div className="login-button">
             <button
-              disabled={!inputIsValid}
-              style={{ backgroundColor: inputIsValid ? '#0995f6' : '' }}
+              disabled={isDisabled}
+              style={{ backgroundColor: buttonColor }}
               onClick={() => {
                 navigate('/mainkris');
               }}
