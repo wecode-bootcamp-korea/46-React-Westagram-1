@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+@import 'src/styles/jiyeon/mixin.scss';
+@import 'src/styles/variables.scss';
+
+#wrapLogin {
+  @include size(620px, 700px);
+  padding: 50px;
+  border: 2px solid #e0e0e0;
+  text-align: center;
+  margin: 50px auto;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  input {
+    outline: none;
+  }
+
+  h1 {
+    font-family: 'Lobster', cursive;
+    @include font(76px, 100);
+    margin-bottom: 75px;
+  }
+
+  input {
+    @include size(484px, 67px);
+
+    display: inline-block;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f1f1f14d;
+    border: 2px solid #e9e9e9;
+    border-radius: 4px;
+    font-size: 20px;
+
+    &::placeholder {
+      color: #979797;
+    }
+  }
+
+  button {
+    @include size(484px, 58px);
+    @include font(24px, 600);
+    display: inline-block;
+    margin-top: 15px;
+    color: #fff;
+    background-color: #b4d8fb; /*활성화 칼라 : #3994ee */
+    border-radius: 6px;
+    border: none;
+  }
+
+  .activeBtn {
+    background-color: #3994ee;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  #findPassword {
+    display: block;
+    font-size: 20px;
+    color: #001c77;
+    margin-top: 186px;
+  }
+}
