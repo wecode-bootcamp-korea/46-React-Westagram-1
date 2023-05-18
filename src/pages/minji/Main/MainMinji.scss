@@ -1,0 +1,265 @@
+@import '../../../styles/minji/mixin.scss';
+
+.page-main {
+  .body-bottom {
+    @include flexSort(column, center, center);
+    margin-top: 40px;
+  }
+
+  p {
+    font-weight: 900;
+    margin-right: 10px;
+  }
+
+  .gray-word {
+    color: gray;
+  }
+
+  .gray-word-dot {
+    color: gray;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .bord-word {
+    font-weight: bold;
+  }
+
+  .navbar {
+    @include flexSort(row, space-between, center);
+    @include componentSize('', 50px);
+  }
+
+  .navbar-left {
+    @include componentSize(33%, '');
+    @include flexSort('', center, center);
+  }
+
+  .navbar-middle {
+    @include componentSize(220px, 27px);
+    @include flexSort(row, center, center);
+    z-index: 1;
+    opacity: 1;
+  }
+
+  #input_search {
+    @include componentSize(400px, 20px);
+    display: block;
+    padding: 8px;
+    border: 1px solid #dbdbdb;
+    opacity: 0.9;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    background-image: url(https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-256.png);
+    background-size: contain;
+    background-position: 70px;
+    background-repeat: no-repeat;
+    text-align: center;
+  }
+
+  .navbar-right {
+    @include componentSize(33%, '');
+    @include flexSort('', flex-end, center);
+  }
+
+  /*****이미지 css 적용*****/
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logo {
+    @include componentSize(30px, 30px);
+    margin-right: 10px;
+  }
+
+  .imgicons {
+    margin-right: 20px;
+  }
+
+  .userimg {
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+
+  .logoimg {
+    @include componentSize(40px, 40px);
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .storyimg {
+    @include componentSize(40px, 40px);
+    border-radius: 50%;
+    margin-right: 10px;
+    padding: 2px;
+    border: 1px solid red;
+  }
+
+  .logobtn {
+    border: none;
+  }
+
+  .likeimg {
+    @include componentSize(15px, 15px);
+    margin-bottom: 30px;
+  }
+
+  /*****이미지 css 적용*****/
+
+  .main-main {
+    @include componentSize(900px, 800px);
+    @include flexSort(row, 'center', 'center');
+  }
+  .main-feeds {
+    border: 1px solid #dbdbdb;
+    @include componentSize(100%, 100%);
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    @include flexSort(column, '', '');
+  }
+
+  .main-article-body,
+  .feedimg {
+    @include componentSize(100%, 560px);
+  }
+
+  .main-article-footer {
+    @include componentSize('', 180px);
+  }
+
+  .article-inner {
+    @include componentSize('', 60px);
+    @include flexSort(row, '', '');
+  }
+
+  .inner {
+    @include flexSort(row, flex-start, center);
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-bottom: 3px;
+    font-size: medium;
+  }
+
+  .article-inner-left {
+    @include componentSize(50%, '');
+    @include flexSort(row, flex-start, center);
+    margin: 10px;
+  }
+
+  .article-inner-right {
+    @include componentSize(50%, '');
+    @include flexSort(row, flex-end, center);
+    margin: 10px;
+  }
+
+  .footer-inner {
+    @include flexSort(column, flex-start, '');
+  }
+
+  .article-footer-header {
+    @include componentSize('', 30px);
+    @include flexSort(row, '', '');
+  }
+
+  .word {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    @include componentSize(250px, 100%);
+  }
+
+  .article-footer-body {
+    border-bottom-color: 1px solid #dbdbdb;
+    @include componentSize('', 60px);
+    margin-left: 10px;
+  }
+
+  .article-footer-footer {
+    @include componentSize('', 25px);
+    @include flexSort(row, '', '');
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  #chatinput {
+    @include componentSize(80%, 25px);
+    border: none;
+    margin-left: 10px;
+  }
+
+  .disableBtn {
+    display: block;
+    border: none;
+    @include componentSize(20%, 30px);
+    border-bottom: 1px solid #dbdbdb;
+    color: skyblue;
+  }
+
+  .ableBtn {
+    color: #0e84d2;
+    border-radius: 3px;
+    border: none;
+    @include componentSize(20%, 40px);
+  }
+
+  /***** main-right *****/
+
+  .main-right {
+    @include componentSize(500px, 500px);
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+  }
+
+  .right-header {
+    @include componentSize('', 50px);
+  }
+
+  .right-body {
+    @include componentSize('', 250px);
+    border: 1px solid #dbdbdb;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .right-body-top {
+    @include flexSort(row, '', '');
+  }
+
+  .right-body-top-left {
+    @include componentSize(50%, '');
+  }
+
+  .right-body-top-right {
+    @include componentSize(50%, '');
+  }
+
+  .right-footer-top {
+    @include flexSort(row, '', '');
+  }
+
+  .right-footer-top-left {
+    @include componentSize(50%, '');
+  }
+
+  .right-footer-top-right {
+    @include componentSize(50%, '');
+  }
+
+  .right-footer {
+    @include componentSize('', 200px);
+    border: 1px solid #dbdbdb;
+  }
+
+  .user-search {
+    @include componentSize('', 15px);
+    background-color: red;
+    display: none;
+  }
+}
