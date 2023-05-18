@@ -7,6 +7,8 @@ function LoginMinji() {
 
   const [id, setUserId] = useState('');
   const [pw, setUserPw] = useState('');
+  const [btnStatus, setBtnStatus] = useState(true);
+  const [disableBtn, setBtn] = useState('disableBtn');
 
   const saveUserId = e => {
     setUserId(e.target.value);
@@ -16,11 +18,17 @@ function LoginMinji() {
     setUserPw(e.target.value);
   };
 
-  const loginBtn = () => {
-    if (!!(id && pw)) {
-      //로그인 버튼 활성화
+  if (id.includes('@') && pw.length > 4) {
+    if (btnStatus) {
+      setBtnStatus(false);
+      setBtn('ableBtn');
     }
-  };
+  } else {
+    if (!btnStatus) {
+      setBtnStatus(true);
+      setBtn('disableBtn');
+    }
+  }
 
   return (
     <div className="page-login">
@@ -34,8 +42,8 @@ function LoginMinji() {
           <form className="form">
             <div className="inputBox">
               <input
-                id="id"
                 type="text"
+                className="id"
                 defaultValue={id}
                 placeholder="전화번호, 사용자 이름 또는 이메일"
                 onChange={saveUserId}
@@ -43,23 +51,16 @@ function LoginMinji() {
             </div>
             <div className="inputBox">
               <input
-                id="psword"
                 type="password"
+                className="psword"
                 defaultValue={pw}
                 placeholder="비밀번호"
                 onChange={saveUserPw}
               />
             </div>
             <div className="loginBtn">
-              <button
-                type="button"
-                className="disableBtn"
-                id="loginBtn"
-                disabled={false}
-              >
-                <span className="logintext" onClick={loginBtn}>
-                  로그인
-                </span>
+              <button type="button" className={disableBtn} disabled={btnStatus}>
+                <span className="logintext">로그인</span>
               </button>
             </div>
           </form>
