@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginKris.scss';
 
@@ -6,24 +6,25 @@ function LoginKris() {
   const navigate = useNavigate();
   const [userId, setUserId] = useState('');
   const [userPw, setUserPw] = useState('');
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [buttonColor, setButtonColor] = useState('');
 
   const saveUserID = e => {
     setUserId(e.target.value);
+    console.log('id yay');
   };
 
   const saveUserPw = e => {
     setUserPw(e.target.value);
+    console.log('pw yay');
   };
 
   const inputIsValid = userId.includes('@') && userPw.trim().length >= 5;
 
-  const [isDisabled, setIsDisabled] = useState('true');
-  const [buttonColor, setButtonColor] = useState('');
-
-  const handleButtonActivation = () => {
+  useEffect(() => {
     setIsDisabled(!inputIsValid);
     setButtonColor(inputIsValid ? '#0995f6' : '');
-  };
+  }, [userId, userPw]);
 
   return (
     <div className="login">
