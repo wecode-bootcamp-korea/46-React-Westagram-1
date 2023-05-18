@@ -12,7 +12,5 @@
   "stylelint.validate": ["css", "scss", ".module.scss"],
   "stylelint.enable": true,
   "javascript.format.enable": false,
-  "eslint.alwaysShowStatus": true,
-  "files.autoSave": "onFocusChange",
-  "workbench.colorTheme": "Material Theme Lighter"
+  "eslint.alwaysShowStatus": true
 }
