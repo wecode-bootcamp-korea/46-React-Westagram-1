@@ -11,12 +11,10 @@ function LoginKris() {
 
   const saveUserID = e => {
     setUserId(e.target.value);
-    console.log('id yay');
   };
 
   const saveUserPw = e => {
     setUserPw(e.target.value);
-    console.log('pw yay');
   };
 
   const inputIsValid = userId.includes('@') && userPw.trim().length >= 5;
