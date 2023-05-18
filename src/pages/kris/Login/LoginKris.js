@@ -5,16 +5,18 @@ import './LoginKris.scss';
 function LoginKris() {
   const navigate = useNavigate();
   const [userId, setUserId] = useState('');
-  const saveUserID = e => {
-    console.log(e);
-    setUserId(e.target.value);
-    console.log('User ID saved!');
-  };
   const [userPw, setUserPw] = useState('');
+
+  const saveUserID = e => {
+    setUserId(e.target.value);
+  };
+
   const saveUserPw = e => {
     setUserPw(e.target.value);
-    console.log('User PW saved!');
   };
+
+  const inputIsValid = userId.includes('@') && userPw.trim().length >= 5;
+
   return (
     <div className="login">
       <div className="login-container">
@@ -43,6 +45,8 @@ function LoginKris() {
           </div>
           <div className="login-button">
             <button
+              disabled={!inputIsValid}
+              style={{ backgroundColor: inputIsValid ? '#0995f6' : '' }}
               onClick={() => {
                 navigate('/mainkris');
               }}
