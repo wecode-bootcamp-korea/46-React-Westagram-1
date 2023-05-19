@@ -1,29 +1,25 @@
 import React, { useState } from 'react';
 import './MainKris.scss';
-import instagramIcon from '../../../assets/kris/instagram.png';
-import searchIcon from '../../../assets/kris/search.png';
-import exploreIcon from '../../../assets/kris/explore.png';
-import heartIcon from '../../../assets/kris/heart.png';
-import commentIcon from '../../../assets/kris/comment.png';
-import shareIcon from '../../../assets/kris/share.png';
 
 function MainKris() {
   const [commentInput, setCommentInput] = useState('');
-  const [comment, setComment] = useState([]);
+  const [commentList, setCommentList] = useState([]);
 
   const handleCommentInput = e => {
     setCommentInput(e.target.value);
   };
+
   const handleCommentPost = () => {
     if (commentInput !== '') {
-      setComment([...comment, commentInput]);
+      console.log('지우기전', commentInput);
+      setCommentList([...commentList, commentInput]);
       setCommentInput('');
-      console.log(commentInput);
-      console.log(comment);
     }
   };
 
-  const handleKeyDown = e => {
+  console.log('지워지기', commentInput);
+
+  const handleKeyUp = e => {
     if (e.key === 'Enter') {
       handleCommentPost();
     }
@@ -35,7 +31,7 @@ function MainKris() {
         <div className="navbar-logo">
           <img
             className="instagram-icon"
-            src={instagramIcon}
+            src="/images/kris/instagram.png"
             alt="instagram-icon"
           />
           <a href="" className="navbar-westagram">
@@ -45,7 +41,7 @@ function MainKris() {
         <div className="navbar-search">
           <img
             className="navbar-search-icon"
-            src={searchIcon}
+            src="/images/kris/search.png"
             alt="search-icon"
           />
           <input type="text" placeholder="검색" />
@@ -53,10 +49,14 @@ function MainKris() {
         <div className="navbar-icons">
           <img
             className="navbar-icon-explore"
-            src={exploreIcon}
+            src="/images/kris/explore.png"
             alt="icon-explore"
           />
-          <img className="navbar-icon-heart" src={heartIcon} alt="icon-heart" />
+          <img
+            className="navbar-icon-heart"
+            src="/images/kris/heart.png"
+            alt="icon-heart"
+          />
           <img
             className="navbar-icon-profile"
             src="https://cdn.pixabay.com/photo/2023/05/15/11/43/sydney-7994809_960_720.jpg"
@@ -80,7 +80,6 @@ function MainKris() {
                 <a href="">back.end</a>
               </div>
             </div>
-
             <div className="feed-image">
               <img
                 src="https://cdn.pixabay.com/photo/2023/05/15/12/44/food-7994980_960_720.jpg"
@@ -90,21 +89,20 @@ function MainKris() {
             <div className="feed-interaction">
               <img
                 className="interaction-icon"
-                src={heartIcon}
+                src="/images/kris/heart.png"
                 alt="heart-icon"
               />
               <img
                 className="interaction-icon"
-                src={commentIcon}
+                src="/images/kris/comment.png"
                 alt="comment-icon"
               />
               <img
                 className="interaction-icon"
-                src={shareIcon}
+                src="/images/kris/share.png"
                 alt="share-icon"
               />
             </div>
-
             <div className="feed-text">
               <span className="feed-text-author">back.end</span>
               <span className="feed-text-writing">
@@ -113,12 +111,10 @@ function MainKris() {
                 libero euismod dignissim id at lacus.{' '}
               </span>
             </div>
-
             <div className="feed-comment-posted-container" />
-            {comment.map(comment => (
-              <div className="comment-posted">{comment}</div>
-            ))}
-
+            {commentList.map(text => {
+              return <div className="comment-posted">{text}</div>;
+            })}
             <div className="feed-add-comment">
               <input
                 type="text"
@@ -126,7 +122,8 @@ function MainKris() {
                 name="comment"
                 placeholder="댓글 달기..."
                 onChange={handleCommentInput}
-                onKeyUp={handleKeyDown}
+                onKeyUp={handleKeyUp}
+                value={commentInput}
               />
               <button className="comment-button" onClick={handleCommentPost}>
                 게시
