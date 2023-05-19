@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './MainKris.scss';
 import instagramIcon from '../../../assets/kris/instagram.png';
 import searchIcon from '../../../assets/kris/search.png';
@@ -8,6 +8,27 @@ import commentIcon from '../../../assets/kris/comment.png';
 import shareIcon from '../../../assets/kris/share.png';
 
 function MainKris() {
+  const [commentInput, setCommentInput] = useState('');
+  const [comment, setComment] = useState([]);
+
+  const handleCommentInput = e => {
+    setCommentInput(e.target.value);
+  };
+  const handleCommentPost = () => {
+    if (commentInput !== '') {
+      setComment([...comment, commentInput]);
+      setCommentInput('');
+      console.log(commentInput);
+      console.log(comment);
+    }
+  };
+
+  const handleKeyDown = e => {
+    if (e.key === 'Enter') {
+      handleCommentPost();
+    }
+  };
+
   return (
     <div className="main">
       <nav>
@@ -92,7 +113,11 @@ function MainKris() {
                 libero euismod dignissim id at lacus.{' '}
               </span>
             </div>
+
             <div className="feed-comment-posted-container" />
+            {comment.map(comment => (
+              <div className="comment-posted">{comment}</div>
+            ))}
 
             <div className="feed-add-comment">
               <input
@@ -100,8 +125,12 @@ function MainKris() {
                 id="comment"
                 name="comment"
                 placeholder="댓글 달기..."
+                onChange={handleCommentInput}
+                onKeyUp={handleKeyDown}
               />
-              <button className="comment-button">게시</button>
+              <button className="comment-button" onClick={handleCommentPost}>
+                게시
+              </button>
             </div>
           </article>
         </div>

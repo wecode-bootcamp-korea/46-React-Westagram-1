@@ -6,8 +6,6 @@ function LoginKris() {
   const navigate = useNavigate();
   const [userId, setUserId] = useState('');
   const [userPw, setUserPw] = useState('');
-  const [isDisabled, setIsDisabled] = useState(true);
-  const [buttonColor, setButtonColor] = useState('');
 
   const saveUserID = e => {
     setUserId(e.target.value);
@@ -19,10 +17,7 @@ function LoginKris() {
 
   const inputIsValid = userId.includes('@') && userPw.trim().length >= 5;
 
-  useEffect(() => {
-    setIsDisabled(!inputIsValid);
-    setButtonColor(inputIsValid ? '#0995f6' : '');
-  }, [userId, userPw]);
+  console.log(inputIsValid);
 
   return (
     <div className="login">
@@ -52,8 +47,8 @@ function LoginKris() {
           </div>
           <div className="login-button">
             <button
-              disabled={isDisabled}
-              style={{ backgroundColor: buttonColor }}
+              disabled={!inputIsValid}
+              className={`loginButton ${inputIsValid ? 'active' : ''}`}
               onClick={() => {
                 navigate('/mainkris');
               }}
