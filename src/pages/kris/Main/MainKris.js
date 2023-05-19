@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './MainKris.scss';
+import Comment from '../components/Comment/Comment';
 
 function MainKris() {
   const [commentInput, setCommentInput] = useState('');
@@ -11,14 +12,10 @@ function MainKris() {
 
   const handleCommentPost = () => {
     if (commentInput !== '') {
-      console.log('지우기전', commentInput);
       setCommentList([...commentList, commentInput]);
       setCommentInput('');
     }
   };
-
-  console.log('지워지기', commentInput);
-
   const handleKeyUp = e => {
     if (e.key === 'Enter') {
       handleCommentPost();
@@ -111,10 +108,9 @@ function MainKris() {
                 libero euismod dignissim id at lacus.{' '}
               </span>
             </div>
-            <div className="feed-comment-posted-container" />
-            {commentList.map(text => {
-              return <div className="comment-posted">{text}</div>;
-            })}
+            <div className="feed-comment-posted-container">
+              <Comment commentList={commentList} />
+            </div>
             <div className="feed-add-comment">
               <input
                 type="text"
