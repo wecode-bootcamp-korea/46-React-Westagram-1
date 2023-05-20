@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import ChatMinji from '../Chat/ChatMinji';
+import ReCommend from '../ReCommend/ReCommend';
+import Story from '../Story/Story';
 import './MainMinji.scss';
 
 function MainMinji() {
@@ -7,6 +9,10 @@ function MainMinji() {
   const [list, setList] = useState([]);
   const [btnStatus, setBtnStatus] = useState(true);
   const [disableBtn, setBtn] = useState('disableBtn');
+
+  const mainCommentView = () => {
+    alert('더 보기 클릭');
+  };
 
   return (
     <div className="page-main">
@@ -74,7 +80,7 @@ function MainMinji() {
                       />
                     </div>
                     <div className="inner">
-                      <span>shdv3303</span>
+                      <span className="bord-word">shdv3303</span>
                     </div>
                   </div>
                 </div>
@@ -127,34 +133,34 @@ function MainMinji() {
               </div>
               <div className="footer-inner">
                 <div className="article-footer-header">
-                  <img
-                    className="userimg"
-                    src="images/minji/userimg.jpeg"
-                    alt="userimg"
-                  />
-                  <span className="bord-word">aineworld</span> 님{' '}
-                  <span className="bord-word">외 10명</span>이 좋아합니다.
+                  <div className="inner">
+                    <img
+                      className="userimg"
+                      src="images/minji/userimg.jpeg"
+                      alt="userimg"
+                    />
+                    <span className="bord-word">aineworld</span> 님{' '}
+                    <span className="bord-word">외 10명</span>이 좋아합니다.
+                  </div>
                 </div>
                 <div className="article-footer-body">
-                  <div className="main-article-header">
-                    <div className="article-inner">
-                      <div className="article-inner-left">
-                        <div className="word">
-                          <span className="bord-word">shdv3303</span> 오늘도
-                          커피에 취한다 커피는 짱이다 맨날 먹고 싶다.
-                          <br />
-                          {list.map((chat, index) => (
-                            <p className="p-bold" key={index}>
-                              user{index + 1}
-                              <span className="chatShow"> {chat}</span>
-                            </p>
-                          ))}
-                          {/* <ul className="chat" id="chat-ul" /> */}
-                          <br />
-                        </div>
-                      </div>
-                      <div className="article-inner-right">
-                        <button className="logobtn" id="heartBtn" type="button">
+                  <div className="article-inner-left">
+                    <div className="word">
+                      <span className="bord-word">shdv3303</span> 오늘도 커피에
+                      취한다 커피는 짱이다 맨날 먹고 싶다.
+                      {list.map((chat, index) => (
+                        <p className="p-bold" key={index}>
+                          user{index + 1}
+                          <span className="chatShow"> {chat}</span>
+                        </p>
+                      ))}
+                    </div>
+                    <span className="addMainComent" onClick={mainCommentView}>
+                      더 보기
+                    </span>
+                  </div>
+                  {/* <div className="article-inner-right">
+                    <button className="logobtn" id="heartBtn" type="button">
                           <img
                             className="likeimg"
                             id="nolike"
@@ -162,8 +168,9 @@ function MainMinji() {
                             alt="좋아요 하트"
                           />
                         </button>
-                      </div>
-                    </div>
+                  </div> */}
+                  <div className="feedTime">
+                    <span className="gray-word">42분 전</span>
                   </div>
                 </div>
                 <ChatMinji
@@ -210,27 +217,8 @@ function MainMinji() {
                     </div>
                   </div>
                 </div>
-                <div className="right-body-bottom">
-                  <div className="inner">
-                    <div className="inner">
-                      <button className="logobtn" type="button">
-                        <img
-                          className="storyimg"
-                          src="images/minji/userimg.jpeg"
-                          alt="user"
-                        />
-                      </button>
-                    </div>
-                    <div className="inner-div">
-                      <div className="inner-top">
-                        <span className="bord-word">_yum_s</span>
-                      </div>
-                      <div className="inner-top">
-                        <span className="gray-word">16분 전</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {/* 스토리 컴포넌트 */}
+                <Story />
               </div>
               <div className="right-footer">
                 <div className="main-article-header">
@@ -243,32 +231,8 @@ function MainMinji() {
                     </div>
                   </div>
                 </div>
-                <div className="right-body-bottom">
-                  <div className="main-article-header">
-                    <div className="article-inner">
-                      <div className="article-inner-left">
-                        <img
-                          className="logoimg"
-                          src="images/minji/userimg.jpeg"
-                          alt="userimg"
-                        />
-                        <div className="inner-div">
-                          <div className="inner-top">
-                            <span className="bord-word"> joaaahye</span>
-                          </div>
-                          <div className="inner-top">
-                            <span className="gray-word-dot">
-                              _lequend_a님 외 2명이 좋아합니다.
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="article-inner-right">
-                        <span>팔로우</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {/* 회원 추천 컴포넌트 */}
+                <ReCommend />
               </div>
               <div>
                 <br />

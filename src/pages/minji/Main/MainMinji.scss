@@ -1,4 +1,10 @@
 @import '../../../styles/minji/mixin.scss';
+/*구글 폰트 적용*/
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+.lobster {
+  font-family: 'Lobster', cursive;
+  font-size: xx-large;
+}
 
 .page-main {
   .body-bottom {
@@ -15,11 +21,9 @@
     color: gray;
   }
 
-  .gray-word-dot {
+  .addMainComent {
     color: gray;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    @include componentSize(70px, 37px);
   }
 
   .bord-word {
@@ -90,14 +94,6 @@
     margin-right: 10px;
   }
 
-  .storyimg {
-    @include componentSize(40px, 40px);
-    border-radius: 50%;
-    margin-right: 10px;
-    padding: 2px;
-    border: 1px solid red;
-  }
-
   .logobtn {
     border: none;
     margin-bottom: 0;
@@ -112,12 +108,12 @@
   /*****이미지 css 적용*****/
 
   .main-main {
-    @include componentSize(900px, 810px);
+    @include componentSize(900px, 840px);
     @include flexSort(row, 'center', 'center');
   }
   .main-feeds {
     border: 1px solid #dbdbdb;
-    @include componentSize(100%, 815px);
+    @include componentSize(100%, 837px);
     margin-left: 2.5%;
     margin-right: 2.5%;
     @include flexSort(column, '', '');
@@ -133,8 +129,9 @@
   }
 
   .article-inner {
-    @include componentSize('', 60px);
+    @include componentSize('', 50px);
     @include flexSort(row, '', '');
+    margin: 8px;
   }
 
   .inner {
@@ -148,35 +145,34 @@
   .article-inner-left {
     @include componentSize(50%, '');
     @include flexSort(row, flex-start, center);
-    margin: 10px;
   }
 
   .article-inner-right {
     @include componentSize(50%, '');
     @include flexSort(row, flex-end, center);
-    margin: 10px;
   }
 
   .footer-inner {
     @include flexSort(column, flex-start, '');
+    margin-left: 10px;
   }
 
   .article-footer-header {
-    @include componentSize('', 30px);
+    @include componentSize('', 20px);
     @include flexSort(row, '', '');
+    margin-bottom: 20px;
   }
 
   .word {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    @include componentSize(250px, 100%);
+    @include componentSize(280px, 40px);
   }
 
   .article-footer-body {
     border-bottom-color: 1px solid #dbdbdb;
-    @include componentSize('', 70px);
-    margin-left: 10px;
+    @include componentSize('', 68px);
   }
 
   input:focus {
@@ -187,10 +183,14 @@
     font-weight: normal;
   }
 
+  .text-overflow-view {
+    @include componentSize('', 70px);
+  }
+
   /***** main-right *****/
 
   .main-right {
-    @include componentSize(500px, 500px);
+    @include componentSize(520px, 500px);
     margin-left: 2.5%;
     margin-right: 2.5%;
   }
@@ -204,6 +204,7 @@
     border: 1px solid #dbdbdb;
     margin-bottom: 10px;
     margin-top: 10px;
+    overflow: hidden;
   }
 
   .right-body-top {
@@ -231,7 +232,7 @@
   }
 
   .right-footer {
-    @include componentSize('', 200px);
+    @include componentSize('', 230px);
     border: 1px solid #dbdbdb;
   }
 
@@ -239,5 +240,8 @@
     @include componentSize('', 15px);
     background-color: red;
     display: none;
+  }
+  .feedTime {
+    margin-top: 10px;
   }
 }
