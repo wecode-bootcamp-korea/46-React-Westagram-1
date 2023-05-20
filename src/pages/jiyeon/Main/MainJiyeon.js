@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './MainJiyeon.scss';
 import { Link } from 'react-router-dom';
 
 const MainJiyeon = () => {
+  const [comment, setComment] = useState([]);
+  const [inputValue, setInputValue] = useState('');
+  const [addComment, setAddComment] = useState();
+  const addComments = () => {
+    let copy = [...comment];
+    comment.push(inputValue);
+    setAddComment(copy);
+    setInputValue('');
+  };
+  const addCommentEnter = e => {
+    if (e.key === 'Enter') {
+      let copy = [...comment];
+      comment.push(inputValue);
+      setAddComment(copy);
+      setInputValue('');
+    }
+  };
+
   return (
     <>
       <div id="wrapMain">
@@ -109,14 +127,36 @@ const MainJiyeon = () => {
                     alt="comment"
                   />
                 </div>
-
+                {comment.map(function (a, i) {
+                  return (
+                    <div id="existComment">
+                      <span className="bold">neceosecius</span>
+                      <span>{comment[i]}</span>
+                      <button className="deleteBtn">삭제</button>
+                      <img
+                        className="heartIcon"
+                        src="/images/jiyeon/heart.png"
+                        alt="comment"
+                      />
+                    </div>
+                  );
+                })}
                 <div id="realCommentBox"></div>
                 <div className="grey">42분 전</div>
               </div>
 
               <div id="line2"></div>
-              <input id="newComment" type="text" placeholder="댓글 달기..." />
-              <button id="commentBtn">게시</button>
+              <input
+                id="newComment"
+                type="text"
+                placeholder="댓글 달기..."
+                value={inputValue}
+                onChange={e => {
+                  setInputValue(e.target.value);
+                }}
+                onKeyDown={addCommentEnter}
+              />
+              <button onClick={addComments}>게시</button>
             </article>
           </div>
 
