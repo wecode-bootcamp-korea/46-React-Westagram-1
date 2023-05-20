@@ -1,7 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './MainMinji.scss';
 
 function MainMinji() {
+  const [inputChat, setInputChat] = useState('');
+  const [list, setList] = useState([]);
+  const [btnStatus, setBtnStatus] = useState(true);
+  const [disableBtn, setBtn] = useState('disableBtn');
+
+  const inputChange = e => {
+    setInputChat(e.target.value);
+    setBtnStatus(false);
+    setBtn('ableBtn');
+  };
+
+  const inputChangeEnter = e => {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      clickBtn();
+      setInputChat('');
+    }
+  };
+
+  const clickBtn = () => {
+    setList([...list, inputChat]);
+    setInputChat('');
+  };
+
   return (
     <div className="page-main">
       <div className="body-top">
@@ -13,7 +37,8 @@ function MainMinji() {
               src="images/minji/instagram.png"
               alt="instagram_logo"
             />
-            <p>|</p> <span className="lobster">Westagram</span>
+            <p className="p-bold">|</p>{' '}
+            <span className="lobster">Westagram</span>
           </div>
           <div className="navbar-middle">
             <div className="search-bar">
@@ -136,16 +161,20 @@ function MainMinji() {
                           <span className="bord-word">shdv3303</span> 오늘도
                           커피에 취한다 커피는 짱이다 맨날 먹고 싶다.
                           <br />
-                          <ul className="chat" id="chat-ul" />
+                          {/* <ul className="chat" id="chat-ul" /> */}
+                          <span>
+                            {list.map((chat, index) => (
+                              <p className="p-bold" key={index}>
+                                user{index + 1}
+                                <span className="chatShow"> {chat}</span>
+                              </p>
+                            ))}
+                            <br />
+                          </span>
                         </div>
                       </div>
                       <div className="article-inner-right">
-                        <button
-                          className="logobtn"
-                          id="heartBtn"
-                          type="button"
-                          onclick="Heart();"
-                        >
+                        <button className="logobtn" id="heartBtn" type="button">
                           <img
                             className="likeimg"
                             id="nolike"
@@ -160,16 +189,17 @@ function MainMinji() {
                 <div className="article-footer-footer">
                   <input
                     type="text"
-                    id="chatinput"
+                    className="chatinput"
                     placeholder="댓글달기.."
-                    onkeyup="validate()"
+                    onChange={inputChange}
+                    onKeyUp={inputChangeEnter}
+                    value={inputChat}
                   />
                   <button
                     type="button"
-                    className="disableBtn"
-                    id="inputBtn"
-                    disabled="true"
-                    onclick="chatEvent()"
+                    className={disableBtn}
+                    disabled={btnStatus}
+                    onClick={clickBtn}
                   >
                     게시
                   </button>
@@ -211,11 +241,7 @@ function MainMinji() {
                 <div className="right-body-bottom">
                   <div className="inner">
                     <div className="inner">
-                      <button
-                        className="logobtn"
-                        type="button"
-                        onclick="alert('스토리 확인 중');"
-                      >
+                      <button className="logobtn" type="button">
                         <img
                           className="storyimg"
                           src="images/minji/userimg.jpeg"
