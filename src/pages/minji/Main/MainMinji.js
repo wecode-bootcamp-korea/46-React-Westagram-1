@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ChatMinji from '../Chat/ChatMinji';
 import './MainMinji.scss';
 
 function MainMinji() {
@@ -6,25 +7,6 @@ function MainMinji() {
   const [list, setList] = useState([]);
   const [btnStatus, setBtnStatus] = useState(true);
   const [disableBtn, setBtn] = useState('disableBtn');
-
-  const inputChange = e => {
-    setInputChat(e.target.value);
-    setBtnStatus(false);
-    setBtn('ableBtn');
-  };
-
-  const inputChangeEnter = e => {
-    if (e.keyCode === 13) {
-      e.preventDefault();
-      clickBtn();
-      setInputChat('');
-    }
-  };
-
-  const clickBtn = () => {
-    setList([...list, inputChat]);
-    setInputChat('');
-  };
 
   return (
     <div className="page-main">
@@ -161,16 +143,14 @@ function MainMinji() {
                           <span className="bord-word">shdv3303</span> 오늘도
                           커피에 취한다 커피는 짱이다 맨날 먹고 싶다.
                           <br />
+                          {list.map((chat, index) => (
+                            <p className="p-bold" key={index}>
+                              user{index + 1}
+                              <span className="chatShow"> {chat}</span>
+                            </p>
+                          ))}
                           {/* <ul className="chat" id="chat-ul" /> */}
-                          <span>
-                            {list.map((chat, index) => (
-                              <p className="p-bold" key={index}>
-                                user{index + 1}
-                                <span className="chatShow"> {chat}</span>
-                              </p>
-                            ))}
-                            <br />
-                          </span>
+                          <br />
                         </div>
                       </div>
                       <div className="article-inner-right">
@@ -186,24 +166,16 @@ function MainMinji() {
                     </div>
                   </div>
                 </div>
-                <div className="article-footer-footer">
-                  <input
-                    type="text"
-                    className="chatinput"
-                    placeholder="댓글달기.."
-                    onChange={inputChange}
-                    onKeyUp={inputChangeEnter}
-                    value={inputChat}
-                  />
-                  <button
-                    type="button"
-                    className={disableBtn}
-                    disabled={btnStatus}
-                    onClick={clickBtn}
-                  >
-                    게시
-                  </button>
-                </div>
+                <ChatMinji
+                  inputChat={inputChat}
+                  setInputChat={setInputChat}
+                  list={list}
+                  setList={setList}
+                  btnStatus={btnStatus}
+                  setBtnStatus={setBtnStatus}
+                  disableBtn={disableBtn}
+                  setBtn={setBtn}
+                />
               </div>
             </div>
           </div>

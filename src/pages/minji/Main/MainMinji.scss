@@ -179,38 +179,12 @@
     margin-left: 10px;
   }
 
-  .article-footer-footer {
-    @include componentSize('', 35px);
-    @include flexSort(row, '', '');
-    border-top: 1px solid #dbdbdb;
-    border-bottom: 1px solid #dbdbdb;
-  }
-
   input:focus {
     outline: none;
   }
 
-  .chatinput {
-    @include componentSize(80%, 100%);
-    border: none;
-    padding: 8px;
-  }
   .chatShow {
     font-weight: normal;
-  }
-
-  .disableBtn {
-    display: block;
-    border: none;
-    @include componentSize(20%, 33px);
-    color: skyblue;
-  }
-
-  .ableBtn {
-    color: #0e84d2;
-    border-radius: 3px;
-    border: none;
-    @include componentSize(20%, 33px);
   }
 
   /***** main-right *****/
