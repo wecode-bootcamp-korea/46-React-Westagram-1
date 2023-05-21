@@ -335,6 +335,10 @@
 
   #existComment {
     margin-bottom: 6px;
+
+    .bold {
+      margin-right: 7px;
+    }
   }
   #newComment {
     @include size(429px, 60px);

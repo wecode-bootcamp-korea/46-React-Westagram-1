@@ -1,23 +1,38 @@
 import React, { useState } from 'react';
 import './MainJiyeon.scss';
-import { Link } from 'react-router-dom';
+
+const WriteNewComment = props => {
+  return (
+    <div id="existComment">
+      <span className="bold">neceosecius</span>
+      <span>{props.comment[props.index]}</span>
+      <button className="deleteBtn">삭제</button>
+      {/* {comment.slice(i, 1)} */}
+      <img className="heartIcon" src="/images/jiyeon/heart.png" alt="comment" />
+    </div>
+  );
+};
 
 const MainJiyeon = () => {
   const [comment, setComment] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [addComment, setAddComment] = useState();
+
   const addComments = () => {
-    let copy = [...comment];
-    comment.push(inputValue);
-    setAddComment(copy);
-    setInputValue('');
-  };
-  const addCommentEnter = e => {
-    if (e.key === 'Enter') {
+    if (inputValue.length > 0) {
       let copy = [...comment];
       comment.push(inputValue);
       setAddComment(copy);
       setInputValue('');
+    }
+  };
+  const addCommentEnter = e => {
+    if (e.key === 'Enter' && inputValue.length > 0) {
+      let copy = [...comment];
+      comment.push(inputValue);
+      setAddComment(copy);
+      setInputValue('');
+      console.log(comment);
     }
   };
 
@@ -118,7 +133,7 @@ const MainJiyeon = () => {
                   <div className="grey">댓글 127개 모두 보기</div>
                 </div>
                 <div id="existComment">
-                  <span className="bold">neceosecius</span>{' '}
+                  <span className="bold">neceosecius</span>
                   <span>귀여워💕</span>
                   <button className="deleteBtn">삭제</button>
                   <img
@@ -128,18 +143,7 @@ const MainJiyeon = () => {
                   />
                 </div>
                 {comment.map(function (a, i) {
-                  return (
-                    <div id="existComment">
-                      <span className="bold">neceosecius</span>
-                      <span>{comment[i]}</span>
-                      <button className="deleteBtn">삭제</button>
-                      <img
-                        className="heartIcon"
-                        src="/images/jiyeon/heart.png"
-                        alt="comment"
-                      />
-                    </div>
-                  );
+                  return <WriteNewComment comment={comment} index={i} />;
                 })}
                 <div id="realCommentBox"></div>
                 <div className="grey">42분 전</div>
