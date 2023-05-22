@@ -412,17 +412,15 @@ input:focus {
     padding: 5px;
   }
 
-  .company-links {
+  .company-link-container {
     margin-bottom: 20px;
-  }
-
-  .company-links a {
     color: rgb(175, 175, 175);
-    font-family: sans-serif;
+    font-size: 14px;
   }
 
   .company-copyright a {
     color: rgb(175, 175, 175);
     font-family: sans-serif;
+    font-size: 15px;
   }
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import './MainKris.scss';
 import Comment from '../components/Comment/Comment';
+import { COMPANY_LINK_LIST } from '../../kris/components/CompanyLink/CompanyLink';
+import './MainKris.scss';
 
 function MainKris() {
   const [commentInput, setCommentInput] = useState('');
@@ -243,19 +244,18 @@ function MainKris() {
           </article>
 
           <section className="company-info">
-            <div className="company-links">
-              <a href="">소개</a>
-              <a href="">도움말</a>
-              <a href="">홍보 센터</a>
-              <a href="">API</a>
-              <a href="">채용 정보</a>
-              <a href="">개인정보처리방침</a>
-              <a href="">약관</a>
-              <a href="">디렉토리</a>
-              <a href="">해시태그</a>
-              <a href="">언어</a>
+            <div className="company-link-container">
+              {COMPANY_LINK_LIST.map(companyLink => {
+                return (
+                  <>
+                    <a href="" className="company-link" key={companyLink.id}>
+                      {companyLink.linkName}
+                    </a>
+                    <span>・</span>
+                  </>
+                );
+              })}
             </div>
-
             <div className="company-copyright">
               <a href="">© 2023 INSTAGRAM</a>
             </div>
