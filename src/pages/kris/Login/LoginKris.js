@@ -17,8 +17,6 @@ function LoginKris() {
 
   const inputIsValid = userId.includes('@') && userPw.trim().length >= 5;
 
-  console.log(inputIsValid);
-
   return (
     <div className="login">
       <div className="login-container">
