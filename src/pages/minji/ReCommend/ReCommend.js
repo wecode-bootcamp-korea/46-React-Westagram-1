@@ -5,19 +5,19 @@ function Story() {
   const [userData, setUserData] = useState([
     {
       id: 'joaaahye',
-      img: 'images/minji/joaaahye.jpeg',
+      img: 'images/minji/userImg/joaaahye.jpeg',
       otherUser: 'llwnn08',
       likeNum: '2',
     },
     {
       id: 'hy31_ooe',
-      img: 'images/minji/hy31_ooe.jpg',
+      img: 'images/minji/userImg/hy31_ooe.jpg',
       otherUser: 'oslib__ii_',
       likeNum: '3',
     },
     {
       id: 'eldij_uu',
-      img: 'images/minji/eldij_uu.jpeg',
+      img: 'images/minji/userImg/eldij_uu.jpeg',
       otherUser: 'aineworld',
       likeNum: '6',
     },

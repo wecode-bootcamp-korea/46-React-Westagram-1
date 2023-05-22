@@ -8,7 +8,7 @@
 
 .page-main {
   .body-bottom {
-    @include flexSort(column, center, center);
+    @include flexSort(row, center, center);
     margin-top: 40px;
   }
 
@@ -106,10 +106,12 @@
   }
 
   /*****이미지 css 적용*****/
-
+  .main-minji {
+    @include flexSort(row, center, '');
+  }
   .main-main {
-    @include componentSize(900px, 840px);
-    @include flexSort(row, 'center', 'center');
+    @include componentSize(700px, 840px);
+    margin-bottom: 20px;
   }
   .main-feeds {
     border: 1px solid #dbdbdb;
@@ -168,6 +170,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     @include componentSize(280px, 40px);
+    font-size: 15px;
   }
 
   .article-footer-body {
@@ -191,6 +194,8 @@
 
   .main-right {
     @include componentSize(520px, 500px);
+    position: sticky;
+    top: 90px;
     margin-left: 2.5%;
     margin-right: 2.5%;
   }
@@ -242,6 +247,14 @@
     display: none;
   }
   .feedTime {
-    margin-top: 10px;
+    margin-top: 5px;
+  }
+  .tag-area {
+    @include componentSize('', 100px);
+    .tag-li {
+      float: left;
+      margin-left: 4px;
+      margin-right: 4px;
+    }
   }
 }

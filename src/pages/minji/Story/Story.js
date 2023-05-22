@@ -5,22 +5,22 @@ function Story() {
   const [userData, setUserData] = useState([
     {
       id: '_yum_s',
-      img: 'images/minji/_yum_s.jpeg',
+      img: 'images/minji/userImg/_yum_s.jpeg',
       time: '16',
     },
     {
       id: 'drink_eat_drink',
-      img: 'images/minji/drink_eat_drink.jpg',
+      img: 'images/minji/userImg/drink_eat_drink.jpg',
       time: '3',
     },
     {
       id: 'hyukyc',
-      img: 'images/minji/hyukyc.jpeg',
+      img: 'images/minji/userImg/hyukyc.jpeg',
       time: '20',
     },
     {
       id: 'jminkeek',
-      img: 'images/minji/jminkeek.jpeg',
+      img: 'images/minji/userImg/jminkeek.jpeg',
       time: '1',
     },
   ]);
