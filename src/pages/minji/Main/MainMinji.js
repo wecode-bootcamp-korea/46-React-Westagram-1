@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import ChatMinji from '../Chat/ChatMinji';
 import ReCommend from '../ReCommend/ReCommend';
 import Story from '../Story/Story';
-import './MainMinji.scss';
 import { TAG_LIST } from '../uiData/tag';
+import './MainMinji.scss';
 
 function MainMinji() {
   const [inputChat, setInputChat] = useState('');

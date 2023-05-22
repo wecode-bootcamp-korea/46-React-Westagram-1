@@ -5,13 +5,13 @@
   margin: 0;
 }
 
-.page-login {
+.loginMinji {
   @include componentSize('', 100vh);
 
   .main-inner {
     @include componentSize('', 100%);
-    background-color: #f1f3f5;
     @include flexSort('', center, center);
+    background-color: #f1f3f5;
   }
 
   .inner {
@@ -24,16 +24,16 @@
   }
 
   .disableBtn {
+    @include componentSize(100%, 30px);
     background-color: skyblue;
     border-radius: 3px;
-    @include componentSize(100%, 30px);
     border: none;
   }
 
   .ableBtn {
+    @include componentSize(100%, 30px);
     background-color: #0e84d2;
     border-radius: 3px;
-    @include componentSize(100%, 30px);
     border: none;
   }
 
@@ -42,8 +42,8 @@
   }
 
   .inputBox {
-    display: block;
     @include componentSize(270px, 20px);
+    display: block;
     padding-top: 15px;
     padding-left: 30px;
     padding-right: 30px;

@@ -22,8 +22,8 @@
   }
 
   .addMainComent {
-    color: gray;
     @include componentSize(70px, 37px);
+    color: gray;
   }
 
   .bord-word {
@@ -95,9 +95,9 @@
   }
 
   .logobtn {
+    @include componentSize('', 15px);
     border: none;
     margin-bottom: 0;
-    @include componentSize('', 15px);
   }
 
   .likeimg {
@@ -114,11 +114,11 @@
     margin-bottom: 20px;
   }
   .main-feeds {
-    border: 1px solid #dbdbdb;
     @include componentSize(100%, 837px);
+    @include flexSort(column, '', '');
+    border: 1px solid #dbdbdb;
     margin-left: 2.5%;
     margin-right: 2.5%;
-    @include flexSort(column, '', '');
   }
 
   .main-article-body,
@@ -166,16 +166,16 @@
   }
 
   .word {
+    @include componentSize(280px, 40px);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    @include componentSize(280px, 40px);
     font-size: 15px;
   }
 
   .article-footer-body {
-    border-bottom-color: 1px solid #dbdbdb;
     @include componentSize('', 68px);
+    border-bottom-color: 1px solid #dbdbdb;
   }
 
   input:focus {

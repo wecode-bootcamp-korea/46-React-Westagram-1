@@ -30,7 +30,7 @@ const ChatMinji = ({
     setInputChat('');
   };
   return (
-    <div className="article-footer-footer">
+    <div className="chatMinji">
       <input
         type="text"
         className="chatinput"

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './LoginMinji.scss';
 import { Link } from 'react-router-dom';
+import './LoginMinji.scss';
 
 function LoginMinji() {
   //id, pw가 입력되어 있을 때, id @ 포함, pw 5자리 이상일 때 로그인 버튼 활성화
@@ -31,7 +31,7 @@ function LoginMinji() {
   }
 
   return (
-    <div className="page-login">
+    <div className="loginMinji">
       <div className="main-inner">
         <div className="inner">
           <div className="inner-header">

@@ -1,6 +1,6 @@
 @import '../../../styles/minji/mixin.scss';
 
-.article-footer-footer {
+.chatMinji {
   @include componentSize('', 35px);
   @include flexSort(row, '', '');
   border-top: 1px solid #dbdbdb;
@@ -13,16 +13,16 @@
   }
 
   .disableBtn {
+    @include componentSize(20%, 33px);
     display: block;
     border: none;
-    @include componentSize(20%, 33px);
     color: skyblue;
   }
 
   .ableBtn {
+    @include componentSize(20%, 33px);
     color: #0e84d2;
     border-radius: 3px;
     border: none;
-    @include componentSize(20%, 33px);
   }
 }
