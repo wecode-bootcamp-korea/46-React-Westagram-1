@@ -1,0 +1,45 @@
+@import '../../../styles/minji/mixin.scss';
+.nav {
+  @include flexSort(row, space-between, center);
+  @include componentSize('', 50px);
+
+  .navbar-left {
+    @include componentSize(33%, '');
+    @include flexSort('', center, center);
+  }
+
+  .navbar-middle {
+    @include componentSize(220px, 27px);
+    @include flexSort(row, center, center);
+    z-index: 1;
+    opacity: 1;
+  }
+  .navbar-right {
+    @include componentSize(33%, '');
+    @include flexSort('', flex-end, center);
+  }
+  #input_search {
+    @include componentSize(400px, 20px);
+    display: block;
+    padding: 8px;
+    border: 1px solid #dbdbdb;
+    opacity: 0.9;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    background-image: url(https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-256.png);
+    background-size: contain;
+    background-position: 70px;
+    background-repeat: no-repeat;
+    text-align: center;
+  }
+
+  .user-search {
+    @include componentSize('', 15px);
+    background-color: red;
+    display: none;
+  }
+
+  .imgicons {
+    margin-right: 20px;
+  }
+}

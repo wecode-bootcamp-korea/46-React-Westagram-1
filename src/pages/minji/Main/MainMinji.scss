@@ -1,0 +1,176 @@
+@import '../../../styles/minji/mixin.scss';
+/*구글 폰트 적용*/
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+.lobster {
+  font-family: 'Lobster', cursive;
+  font-size: xx-large;
+}
+
+.page-main {
+  .body-bottom {
+    @include flexSort(row, center, center);
+    margin-top: 40px;
+  }
+
+  .p-bold {
+    font-weight: 900;
+    margin-right: 10px;
+  }
+
+  .gray-word {
+    color: gray;
+  }
+
+  .bord-word {
+    font-weight: bold;
+  }
+
+  /*****이미지 css 적용*****/
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logo {
+    @include componentSize(30px, 30px);
+    margin-right: 10px;
+  }
+
+  .logoimg {
+    @include componentSize(40px, 40px);
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .logobtn {
+    @include componentSize('', 15px);
+    border: none;
+    margin-bottom: 0;
+  }
+
+  .likeimg {
+    @include componentSize(15px, 15px);
+    margin-bottom: 30px;
+  }
+
+  /*****이미지 css 적용*****/
+  .main-minji {
+    @include flexSort(row, center, '');
+  }
+
+  .main-article-body,
+  .feedimg {
+    @include componentSize(100%, 560px);
+  }
+
+  .article-inner {
+    @include componentSize('', 50px);
+    @include flexSort(row, '', '');
+    margin: 8px;
+  }
+
+  .inner {
+    @include flexSort(row, flex-start, center);
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-bottom: 3px;
+    font-size: medium;
+  }
+
+  .article-inner-left {
+    @include componentSize(50%, '');
+    @include flexSort(row, flex-start, center);
+  }
+
+  .article-inner-right {
+    @include componentSize(50%, '');
+    @include flexSort(row, flex-end, center);
+  }
+
+  .article-footer-header {
+    @include componentSize('', 20px);
+    @include flexSort(row, '', '');
+    margin-bottom: 20px;
+  }
+
+  .word {
+    @include componentSize(280px, 40px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 15px;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  .chatShow {
+    font-weight: normal;
+  }
+
+  .text-overflow-view {
+    @include componentSize('', 70px);
+  }
+
+  /***** main-right *****/
+
+  .main-right {
+    @include componentSize(520px, 500px);
+    position: sticky;
+    top: 90px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+  }
+
+  .right-header {
+    @include componentSize('', 50px);
+  }
+
+  .right-body {
+    @include componentSize('', 250px);
+    border: 1px solid #dbdbdb;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+
+  .right-body-top {
+    @include flexSort(row, '', '');
+  }
+
+  .right-body-top-left {
+    @include componentSize(50%, '');
+  }
+
+  .right-body-top-right {
+    @include componentSize(50%, '');
+  }
+
+  .right-footer-top {
+    @include flexSort(row, '', '');
+  }
+
+  .right-footer-top-left {
+    @include componentSize(50%, '');
+  }
+
+  .right-footer-top-right {
+    @include componentSize(50%, '');
+  }
+
+  .right-footer {
+    @include componentSize('', 230px);
+    border: 1px solid #dbdbdb;
+  }
+
+  .tag-area {
+    @include componentSize('', 100px);
+    .tag-li {
+      float: left;
+      margin-left: 4px;
+      margin-right: 4px;
+    }
+  }
+}

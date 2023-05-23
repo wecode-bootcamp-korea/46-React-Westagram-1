@@ -1,0 +1,90 @@
+@import '../../../styles/minji/mixin.scss';
+
+* {
+  box-shadow: border-box;
+  margin: 0;
+}
+
+.loginMinji {
+  @include componentSize('', 100vh);
+
+  .main-inner {
+    @include componentSize('', 100%);
+    @include flexSort('', center, center);
+    background-color: #f1f3f5;
+  }
+
+  .inner {
+    @include flexSort(column, space-around, center);
+    @include componentSize(350px, 380px);
+    padding: 10px 40px;
+    box-sizing: border-box;
+    background: white;
+    border: 1px solid #dbdbdb;
+  }
+
+  .disableBtn {
+    @include componentSize(100%, 30px);
+    background-color: skyblue;
+    border-radius: 3px;
+    border: none;
+  }
+
+  .ableBtn {
+    @include componentSize(100%, 30px);
+    background-color: #0e84d2;
+    border-radius: 3px;
+    border: none;
+  }
+
+  .logintext {
+    color: white;
+  }
+
+  .inputBox {
+    @include componentSize(270px, 20px);
+    display: block;
+    padding-top: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    border: 1px solid #dbdbdb;
+    opacity: 0.6;
+    border-radius: 3px;
+    margin-bottom: 15px;
+  }
+
+  .id,
+  .psword {
+    border: none;
+    width: 100%;
+  }
+
+  .id:focus {
+    outline: none;
+  }
+
+  .psword:focus {
+    outline: none;
+  }
+
+  .forget {
+    font-size: small;
+  }
+
+  .link {
+    text-decoration-line: none;
+  }
+
+  /*구글 폰트 적용*/
+  @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+  .lobster {
+    font-family: 'Lobster', cursive;
+    font-size: xx-large;
+  }
+
+  .chat {
+    list-style-type: none;
+    padding-left: 0;
+  }
+}

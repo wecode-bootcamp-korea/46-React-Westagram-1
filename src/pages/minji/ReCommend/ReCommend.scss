@@ -1,0 +1,40 @@
+@import '../../../styles/minji/mixin.scss';
+
+.recommend {
+  .article-inner {
+    @include componentSize('', 50px);
+    @include flexSort(row, '', '');
+    margin: 8px;
+  }
+
+  .right-inner-left {
+    @include componentSize(80%, '');
+    @include flexSort(row, flex-start, center);
+  }
+
+  .right-inner-right {
+    @include componentSize(20%, '');
+    @include flexSort(row, flex-end, center);
+  }
+
+  .logoimg {
+    @include componentSize(40px, 40px);
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .word-dot {
+    @include componentSize(150px, '');
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .gray-word-dot {
+    color: gray;
+  }
+
+  .followWord {
+    color: #0e84d2;
+    font-weight: 600;
+  }
+}

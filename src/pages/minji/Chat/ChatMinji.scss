@@ -1,0 +1,28 @@
+@import '../../../styles/minji/mixin.scss';
+
+.chatMinji {
+  @include componentSize('', 35px);
+  @include flexSort(row, '', '');
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+
+  .chatinput {
+    @include componentSize(80%, 100%);
+    border: none;
+    padding: 8px;
+  }
+
+  .disableBtn {
+    @include componentSize(20%, 33px);
+    display: block;
+    border: none;
+    color: skyblue;
+  }
+
+  .ableBtn {
+    @include componentSize(20%, 33px);
+    color: #0e84d2;
+    border-radius: 3px;
+    border: none;
+  }
+}
