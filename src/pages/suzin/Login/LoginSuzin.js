@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import './LoginSuzin.scss';
@@ -6,15 +6,20 @@ import './LoginSuzin.scss';
 const LoginSuzin = () => {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
+  const [bt, setBt] = useState('skyblue');
   const navigate = useNavigate();
+
   const saveUserId = e => {
     setId(e.target.value);
-    console.log(id);
   };
   const saveUserPw = e => {
     setPw(e.target.value);
-    console.log(pw);
   };
+
+  useEffect(() => {
+    id.includes('@') && pw.length > 4 ? setBt('blue') : setBt('skyblue');
+  }, [id, pw]);
+
   return (
     <div id="loginking">
       <main id="loginBox">
@@ -26,7 +31,7 @@ const LoginSuzin = () => {
           onChange={saveUserId}
         />
         <input
-          type="text"
+          type="password"
           className="password"
           placeholder="비밀번호"
           onChange={saveUserPw}
@@ -39,6 +44,8 @@ const LoginSuzin = () => {
           onClick={() => {
             navigate('/mainsuzin');
           }}
+          style={{ backgroundColor: bt }}
+          disabled={bt === 'skyblue'}
         >
           로그인
         </button>
