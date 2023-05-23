@@ -1,0 +1,40 @@
+@import '../../../styles/minji/mixin.scss';
+.feed {
+  .main-main {
+    @include componentSize(700px, 840px);
+    margin-bottom: 20px;
+  }
+  .main-feeds {
+    @include componentSize(100%, 837px);
+    @include flexSort(column, '', '');
+    border: 1px solid #dbdbdb;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+  }
+  .userimg {
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+
+  .feedimg {
+    @include componentSize(100%, 560px);
+  }
+  .main-article-footer {
+    @include componentSize('', 100%);
+  }
+  .footer-inner {
+    @include flexSort(column, flex-start, '');
+    margin-left: 10px;
+  }
+  .article-footer-body {
+    @include componentSize('', 68px);
+    border-bottom-color: 1px solid #dbdbdb;
+  }
+  .addMainComent {
+    @include componentSize(70px, 37px);
+    color: gray;
+  }
+  .feedTime {
+    margin-top: 5px;
+  }
+}

@@ -21,11 +21,6 @@
     color: gray;
   }
 
-  .addMainComent {
-    @include componentSize(70px, 37px);
-    color: gray;
-  }
-
   .bord-word {
     font-weight: bold;
   }
@@ -83,11 +78,6 @@
     margin-right: 20px;
   }
 
-  .userimg {
-    border-radius: 50%;
-    margin-right: 5px;
-  }
-
   .logoimg {
     @include componentSize(40px, 40px);
     border-radius: 50%;
@@ -109,25 +99,10 @@
   .main-minji {
     @include flexSort(row, center, '');
   }
-  .main-main {
-    @include componentSize(700px, 840px);
-    margin-bottom: 20px;
-  }
-  .main-feeds {
-    @include componentSize(100%, 837px);
-    @include flexSort(column, '', '');
-    border: 1px solid #dbdbdb;
-    margin-left: 2.5%;
-    margin-right: 2.5%;
-  }
 
   .main-article-body,
   .feedimg {
     @include componentSize(100%, 560px);
-  }
-
-  .main-article-footer {
-    @include componentSize('', 100%);
   }
 
   .article-inner {
@@ -154,11 +129,6 @@
     @include flexSort(row, flex-end, center);
   }
 
-  .footer-inner {
-    @include flexSort(column, flex-start, '');
-    margin-left: 10px;
-  }
-
   .article-footer-header {
     @include componentSize('', 20px);
     @include flexSort(row, '', '');
@@ -171,11 +141,6 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 15px;
-  }
-
-  .article-footer-body {
-    @include componentSize('', 68px);
-    border-bottom-color: 1px solid #dbdbdb;
   }
 
   input:focus {
@@ -246,9 +211,7 @@
     background-color: red;
     display: none;
   }
-  .feedTime {
-    margin-top: 5px;
-  }
+
   .tag-area {
     @include componentSize('', 100px);
     .tag-li {
