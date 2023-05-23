@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-햐;
+import React, { useEffect, useState } from 'react';
+
 import './MainJiyeon.scss';
 
 const WriteNewComment = props => {
@@ -18,6 +18,13 @@ const MainJiyeon = () => {
   const [comment, setComment] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [addComment, setAddComment] = useState();
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch('/data/data.json')
+      .then(response => response.json())
+      .then(result => setData(result));
+  }, []);
 
   const addComments = () => {
     if (inputValue.length > 0) {
@@ -39,29 +46,29 @@ const MainJiyeon = () => {
 
   return (
     <>
-      <div id="wrapMain">
-        <div id="navBottomLine">
-          <nav id="navBar">
-            <div id="navLeft">
+      <div className="wrapMain">
+        <div className="navBottomLine">
+          <nav className="navBar">
+            <div className="navLeft">
               <img src="/images/jiyeon/Nav/instagram.png" alt="home" />
-              <div id="line"></div>
-              <h1 id="mainH1">Westagram</h1>
+              <div className="line"></div>
+              <h1 className="mainH1">Westagram</h1>
             </div>
-            <input id="search" type="text" placeholder="검색" />
-            <ul id="searchedID"></ul>
-            <div id="navRight">
+            <input className="search" type="text" placeholder="검색" />
+            <ul className="searchedID"></ul>
+            <div className="navRight">
               <img src="/images/jiyeon/explore.png" alt="explore" />
               <img src="/images/jiyeon/heart.png" alt="heart" />
               <img
-                id="profile"
+                className="profile"
                 src="/images/jiyeon/profile.png"
                 alt="profile"
               />
             </div>
           </nav>
 
-          <div id="profileBox" className="displayNone">
-            <div id="profileBoxTail"></div>
+          <div className="profileBox displayNone">
+            <div className="profileBoxTail"></div>
             <div className="profileBoxInnerBox">
               <img
                 src="/images/jiyeon/account_circle_FILL0_wght400_GRAD0_opsz48.png"
@@ -89,17 +96,17 @@ const MainJiyeon = () => {
           </div>
         </div>
 
-        <div id="main">
+        <div className="main">
           <div className="feeds">
-            <article class="articles">
-              <div id="feedTop">
-                <div id="personal">
+            <article className="articles">
+              <div className="feedTop">
+                <div className="personal">
                   <img
-                    id="personalProfile"
+                    className="personalProfile"
                     src="/images/jiyeon/KakaoTalk_20230508_214810406.jpg"
                     alt="personalProfile"
                   />
-                  <span id="personalId">yeonnn</span>
+                  <span className="personalId">yeonnn</span>
                 </div>
                 <img
                   src="/images/jiyeon/more_horiz_FILL0_wght400_GRAD0_opsz48.png"
@@ -107,18 +114,18 @@ const MainJiyeon = () => {
                 />
               </div>
               <img src="/images/jiyeon/cat.jpg" alt="cat" />
-              <div id="feedBottom">
-                <div id="feedBottomLeft">
+              <div className="feedBottom">
+                <div className="feedBottomLeft">
                   <img src="/images/jiyeon/heart.png" alt="heart" />
                   <img src="/images/jiyeon/chat.png" alt="comment" />
                   <img src="/images/jiyeon/upload.png" alt="share" />
                 </div>
                 <img src="/images/jiyeon/ribbon.png" alt="bookmark" />
               </div>
-              <div id="commentBox">
-                <div id="howMuchLike">
+              <div className="commentBox">
+                <div className="howMuchLike">
                   <img
-                    id="likeProfile"
+                    className="likeProfile"
                     src="/images/jiyeon/KakaoTalk_20230508_214810406.jpg"
                     alt="likeProfile"
                   />
@@ -128,12 +135,12 @@ const MainJiyeon = () => {
                     <span className="bold">외 10명</span>이 좋아합니다
                   </span>
                 </div>
-                <div class="comment">
+                <div className="comment">
                   <span className="bold">yeonnn</span> 세상에서 제일 귀여운 지구
                   <span className="grey">...더 보기</span>
                   <div className="grey">댓글 127개 모두 보기</div>
                 </div>
-                <div id="existComment">
+                <div className="existComment">
                   <span className="bold">neceosecius</span>
                   <span>귀여워💕</span>
                   <button className="deleteBtn">삭제</button>
@@ -144,15 +151,15 @@ const MainJiyeon = () => {
                   />
                 </div>
                 {comment.map(function (a, i) {
-                  return <WriteNewComment comment={comment} index={i} />;
+                  return <WriteNewComment comment={a} index={i} />;
                 })}
-                <div id="realCommentBox"></div>
+                <div className="realCommentBox"></div>
                 <div className="grey">42분 전</div>
               </div>
 
-              <div id="line2"></div>
+              <div className="line2"></div>
               <input
-                id="newComment"
+                className="newComment"
                 type="text"
                 placeholder="댓글 달기..."
                 value={inputValue}
@@ -165,10 +172,10 @@ const MainJiyeon = () => {
             </article>
           </div>
 
-          <div id="mainRight">
+          <div className="mainRight">
             <div className="top">
               <img
-                id="likeProfile"
+                className="likeProfile"
                 src="/images/jiyeon/KakaoTalk_20230508_214810406.jpg"
                 alt="likeProfile"
               />
@@ -178,7 +185,7 @@ const MainJiyeon = () => {
               <span className="grey">paw | paw</span>
             </div>
 
-            <div id="rightUpper">
+            <div className="rightUpper">
               <div className="rightTopMenu">
                 <span className="grey">스토리</span>
                 <span>모두 보기</span>
@@ -232,7 +239,7 @@ const MainJiyeon = () => {
               </div>
             </div>
 
-            <div id="rightLower">
+            <div className="rightLower">
               <div className="rightTopMenu">
                 <span className="grey">회원님을 위한 추천</span>
                 <span>모두 보기</span>
@@ -279,8 +286,9 @@ const MainJiyeon = () => {
             </div>
 
             <div className="grey westagramInform">
-              Westagram 정보 · 지원 · 홍보 센터 · API · 채용 정보 ·
-              개인정보처리방침 · 약관 · 디렉터리 · 프로필 · 해시태그 · 언어
+              {data.map(data => {
+                return `${data.name} ・ `;
+              })}
               <br />
               <br />ⓒ 2019 WESTAGRAM
             </div>

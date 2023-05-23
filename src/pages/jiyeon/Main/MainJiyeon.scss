@@ -11,7 +11,7 @@
   font-family: 'Noto Sans KR', sans-serif;
 }
 
-#wrapMain {
+.wrapMain {
   position: relative;
   margin: 50px auto;
 
@@ -46,7 +46,7 @@
     }
   }
 
-  #navBar {
+  .navBar {
     position: fixed;
     @include flexAligncenter;
     justify-content: space-between;
@@ -58,7 +58,7 @@
     padding: 14px 0px;
   }
 
-  #navBottomLine {
+  .navBottomLine {
     position: fixed;
     left: 0;
     top: 0;
@@ -68,24 +68,24 @@
     border-bottom: 2px solid #f1f1f1;
   }
 
-  #navBar img {
+  .navBar img {
     width: 20px;
   }
 
-  #line {
+  .line {
     display: inline-block;
     @include size(1px, 35px);
     margin: 0 9px;
     background-color: #000;
   }
 
-  #mainH1 {
+  .mainH1 {
     display: inline-block;
     font-family: 'Lobster', cursive;
     @include font(26px, 100);
   }
 
-  #search {
+  .search {
     position: absolute;
     left: 50%;
     margin-left: -120px;
@@ -98,7 +98,7 @@
     font-weight: 100;
   }
 
-  #searchedID {
+  .searchedID {
     /* display: none; */
     position: absolute;
     top: 50px;
@@ -107,7 +107,7 @@
   }
 
   /*말풍선 꼬리 - border로 만듬!*/
-  #searchedID::after {
+  .searchedID::after {
     display: none;
     border-bottom: 8px solid #e9e9e9;
     border-left: 7px solid rgba(255, 255, 255, 0);
@@ -120,7 +120,7 @@
     top: -8px;
   }
 
-  #searchedID li {
+  .searchedID li {
     @include flexAligncenter;
     flex-wrap: wrap;
     @include size(240px, 55px);
@@ -129,41 +129,41 @@
     border: 1px solid #e9e9e9;
   }
 
-  #searchedID img {
+  .searchedID img {
     float: left;
     @include size(35px, 35px);
     margin: 0px 7px;
     border-radius: 50%;
   }
 
-  #searchedID > div {
+  .searchedID > div {
     margin-left: 11px;
   }
 
-  #searchedID div {
+  .searchedID div {
     font-size: 14px;
   }
 
-  #search::placeholder {
+  .search::placeholder {
     color: #b3b3b3;
     @include font(12px, 100);
   }
 
-  #navLeft,
-  #navRight {
+  .navLeft,
+  .navRight {
     @include flexAligncenter;
     justify-content: space-evenly;
   }
 
-  #navRight > img {
+  .navRight > img {
     margin: 0px 10px;
   }
 
-  #profile:hover {
+  .profile:hover {
     cursor: pointer;
   }
 
-  #profileBox {
+  .profileBox {
     position: absolute;
     top: 61px;
     left: 890px;
@@ -177,7 +177,7 @@
   .displayNone {
     display: none;
   }
-  #profileBox > :last-child {
+  .profileBox > :last-child {
     /*체크*/
     border-top: 1px solid #e7e7e7;
   }
@@ -193,7 +193,7 @@
       box-shadow: 0px 0px 10px 3px #e7e7e7;
     } */
 
-  #profileBox::before {
+  .profileBox::before {
     @include size(0px, 0px);
     content: '';
     display: block;
@@ -214,16 +214,16 @@
     line-height: 25px;
   }
 
-  #profileBox img {
+  .profileBox img {
     width: 25px;
     margin-right: 6px;
   }
 
-  #navRight > img {
+  .navRight > img {
     margin: 0px 10px;
   }
 
-  #main {
+  .main {
     display: flex;
     justify-content: space-between;
     width: 800px;
@@ -236,14 +236,14 @@
     margin-right: 20px;
   }
 
-  #feedTop {
+  .feedTop {
     @include flexAligncenter;
     justify-content: space-between;
     height: 60px;
     padding: 20px 10px;
   }
 
-  #feedTop > img {
+  .feedTop > img {
     width: 25px;
     border-radius: 50%;
   }
@@ -255,14 +255,14 @@
     padding: 5px 0px;
   }
 
-  #personal {
+  .personal {
     float: left;
     @include flexAligncenter;
     height: 35px;
     font-weight: 800;
   }
 
-  #personal > img {
+  .personal > img {
     width: 35px;
     border-radius: 50%;
     margin-right: 10px;
@@ -279,18 +279,18 @@
     width: 477px;
   }
 
-  #feedBottom {
+  .feedBottom {
     display: flex;
     justify-content: space-between;
     padding: 0px 5px;
   }
 
-  #feedBottom img {
+  .feedBottom img {
     width: 25px;
     margin: 3px;
   }
 
-  #feedBottomLeft {
+  .feedBottomLeft {
     display: inline-block;
   }
 
@@ -298,7 +298,7 @@
     margin-bottom: 35px;
   }
 
-  #likeProfile {
+  .likeProfile {
     width: 30px;
     border-radius: 45px;
   }
@@ -314,17 +314,17 @@
     font-family: 'Noto Sans KR', sans-serif;
   }
 
-  #commentBox {
+  .commentBox {
     padding: 15px;
     width: 477px;
     word-wrap: break-word; /*boxSize 넘어갈 시 자동 줄바꿈*/
   }
 
-  #like {
+  .like {
     display: inline-block;
   }
 
-  #line2 {
+  .line2 {
     @include size(478px, 1px);
     background-color: #dfdfdf;
   }
@@ -333,23 +333,23 @@
     margin: 6px 0px 10px 0px;
   }
 
-  #existComment {
+  .existComment {
     margin-bottom: 6px;
 
     .bold {
       margin-right: 7px;
     }
   }
-  #newComment {
+  .newComment {
     @include size(429px, 60px);
     border: none;
   }
 
-  #newComment:focus {
+  .newComment:focus {
     border: none;
   }
 
-  #newComment::placeholder {
+  .newComment::placeholder {
     margin-bottom: 10px;
     padding-left: 15px;
     font-size: 14px;
@@ -368,12 +368,12 @@
     color: #b4d8fb;
   }
 
-  #mainRight {
+  .mainRight {
     width: 300px;
     padding: 10px;
   }
 
-  #mainRight img {
+  .mainRight img {
     display: block;
     float: left;
     width: 45px;
@@ -388,7 +388,7 @@
     font-size: 14px;
   }
 
-  #rightUpper {
+  .rightUpper {
     @include size(260px, 253px);
     margin-bottom: 16px;
     padding: 10px;
@@ -398,7 +398,7 @@
     overflow: hidden;
   }
 
-  #rightLower {
+  .rightLower {
     @include size(260px, 217px);
     padding: 10px;
     border: 1px solid #e9e9e9;
@@ -406,11 +406,11 @@
     overflow: hidden;
   }
 
-  #rightUpper span {
+  .rightUpper span {
     line-height: 14px;
     font-size: 12px;
   }
-  #rightLower span {
+  .rightLower span {
     line-height: 14px;
     font-size: 12px;
   }
@@ -455,12 +455,12 @@
     color: #999999;
   }
 
-  #howMuchLike {
+  .howMuchLike {
     @include flexAligncenter;
     margin-bottom: 10px;
   }
 
-  #howMuchLike > img {
+  .howMuchLike > img {
     margin-right: 7px;
   }
 }
