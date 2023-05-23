@@ -11,6 +11,7 @@ function MainMinji() {
   const [btnStatus, setBtnStatus] = useState(true);
   const [disableBtn, setBtn] = useState('disableBtn');
   const [userInfoList, setUserInfoList] = useState([]);
+  const [commentData, setCommentData] = useState([{}]);
   const mainCommentView = () => {
     alert('더 보기 클릭');
   };
@@ -19,6 +20,9 @@ function MainMinji() {
     fetch('/data/minji/userInfoList.json')
       .then(response => response.json())
       .then(result => setUserInfoList(result));
+    fetch('/data/minji/comment.json')
+      .then(response => response.json())
+      .then(result => setCommentData(result));
   }, []);
   return (
     <div className="page-main">
@@ -38,7 +42,7 @@ function MainMinji() {
             <div className="search-bar">
               <input id="input_search" type="search" placeholder="검색" />
               <ul className="user-search" id="user-ul">
-                <li className="userli" id="user1">
+                {/* <li className="userli" id="user1">
                   wecode10
                 </li>
                 <li className="userli" id="user2">
@@ -46,7 +50,7 @@ function MainMinji() {
                 </li>
                 <li className="userli" id="user3">
                   day_lu_
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
@@ -75,6 +79,10 @@ function MainMinji() {
         <main className="main-minji">
           <div>
             {userInfoList.map(userinfo => {
+              const comments = commentData.filter(
+                comment => comment.feedId === userinfo.id
+              );
+
               return (
                 <div className="main-main" key={userinfo.id}>
                   <div className="main-feeds">
@@ -159,12 +167,25 @@ function MainMinji() {
                             <div className="word">
                               <span className="bord-word">{userinfo.name}</span>{' '}
                               오늘도 커피에 취한다 커피는 짱이다 맨날 먹고 싶다.
-                              {list.map((chat, index) => (
-                                <p className="p-bold" key={index}>
-                                  user{index + 1}
-                                  <span className="chatShow"> {chat}</span>
-                                </p>
-                              ))}
+                              {comments.map(comment => {
+                                return (
+                                  <p className="p-bold" key={comment.commentId}>
+                                    {comment.write}
+                                    {'\n'}
+                                    <span className="chatShow">
+                                      {comment.content}
+                                    </span>
+                                  </p>
+                                );
+                              })}
+                              {/* {
+                                  list.map((chat, index) => (
+                                    <p className="p-bold" key={index}>
+                                      user{index + 1}
+                                      <span className="chatShow"> {chat}</span>
+                                    </p>
+                                  ));
+                                } */}
                             </div>
                             <span
                               className="addMainComent"
@@ -187,6 +208,7 @@ function MainMinji() {
                             <span className="gray-word">42분 전</span>
                           </div>
                         </div>
+
                         <ChatMinji
                           inputChat={inputChat}
                           setInputChat={setInputChat}
