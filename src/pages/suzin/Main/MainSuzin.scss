@@ -1,0 +1,268 @@
+//Sass nesting 적용
+
+.navigation {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  position: fixed;
+  right: 0;
+  background-color: white;
+  top: 0;
+  padding: 20px 0;
+
+  #logoBox {
+    #subject {
+      font-family: 'Lobster', cursive;
+      font-size: 30px;
+      position: relative;
+      top: -7px;
+    }
+  }
+
+  #searchBox {
+    position: relative;
+    .searchInput {
+      width: 200px;
+      height: 25px;
+      right: 0;
+      text-align: center;
+    }
+    .searchIcon {
+      position: absolute;
+      width: 18px;
+      right: 120px;
+      top: 4px;
+    }
+  }
+}
+.feedMain {
+  margin-top: 130px;
+  height: 900px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .feeds {
+    width: 600px;
+    height: 860px;
+    margin-right: 20px;
+
+    article {
+      border: 1px solid lightgray;
+      #articleTop {
+        display: flex;
+        justify-content: space-between;
+        #articleTopLeft {
+          display: flex;
+        }
+        #moreIcon {
+          margin: auto 20px;
+          width: 25px;
+        }
+      }
+      #articleImg {
+        width: 100%;
+      }
+      #feedIcon {
+        display: flex;
+        justify-content: space-between;
+        #iconLeft {
+          .icon {
+            width: 35px;
+            padding-top: 5px;
+            padding-right: 0px;
+            padding-left: 10px;
+          }
+        }
+        #iconRight {
+          margin-right: 10px;
+          .icon {
+            width: 35px;
+            padding-top: 5px;
+            padding-right: 0px;
+            padding-left: 10px;
+          }
+        }
+      }
+      #articleBottom {
+        padding-left: 15px;
+        border-bottom: 1px solid lightgray;
+        padding-bottom: 10px;
+        #feedLikeBox {
+          display: flex;
+
+          #likeBoxImg {
+            padding-right: 5px;
+            margin: 10px 0;
+            width: 30px;
+          }
+          #likeBoxText {
+            margin: auto 0;
+          }
+        }
+        #content {
+          #more {
+            margin-left: 10px;
+            color: gray;
+          }
+        }
+        ul {
+          padding-left: 0px;
+          list-style: none;
+          .commentList {
+            display: flex;
+            justify-content: space-between;
+            .commentListRight {
+              margin-right: 15px;
+              .deleteBtn {
+                background-color: white;
+                border: none;
+                color: gray;
+              }
+            }
+          }
+        }
+      }
+      #time {
+        color: gray;
+        padding-top: 10px;
+      }
+    }
+
+    #commentBox {
+      position: relative;
+      #comment {
+        width: 90%;
+        text-align: left;
+        padding: 0;
+        padding-left: 10px;
+        margin: 10px 5px;
+        border: none;
+        height: 25px;
+      }
+      .commentBt {
+        position: absolute;
+        right: 10px;
+        top: 14px;
+        background-color: white;
+        border: none;
+        color: rgb(34, 153, 244);
+      }
+    }
+  }
+}
+.main-right {
+  border: 1px solid lightgray;
+  border: none;
+  width: 400px;
+  height: 600px;
+  .stories {
+    border: 1px solid lightgray;
+    height: 280px;
+    margin-bottom: 10px;
+
+    .storiesTop {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 20px;
+    }
+
+    .user {
+      margin-left: 20px;
+    }
+  }
+  .stories {
+    border: 1px solid lightgray;
+    height: 280px;
+    margin-bottom: 10px;
+
+    .storiesTop {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 20px;
+    }
+
+    .userTwoBox {
+      display: flex;
+      justify-content: space-around;
+      .userTwo {
+        display: flex;
+        padding-bottom: 20px;
+        border: none;
+        justify-content: space-around;
+        .recommend {
+          display: flex;
+          position: relative;
+          .recommendName {
+            left: 20px;
+            top: 10px;
+          }
+        }
+      }
+      button {
+        margin: 10px;
+        height: 23px;
+        background-color: white;
+        border: none;
+        font-weight: bolder;
+        color: rgb(34, 153, 244);
+      }
+    }
+    footer {
+      color: gray;
+      #footerTop {
+        margin-top: 50px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+////////////
+
+.profileImage {
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  border-radius: 100%;
+}
+
+.user {
+  display: flex;
+  padding-bottom: 20px;
+  border: none;
+  margin-left: 20px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.logoImage {
+  padding-right: 20px;
+  width: 50px;
+}
+
+.subject {
+  margin-top: 7px;
+  font-weight: bold;
+}
+.additional {
+  color: gray;
+  font-size: 14px;
+}
+
+.subject .additional {
+  margin: 0;
+}
+
+.userName {
+  font-weight: bolder;
+}
+
+.logoImageSmall {
+  width: 13px;
+}
