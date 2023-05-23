@@ -1,7 +1,7 @@
 import './CompanyLink.scss';
 
 export const COMPANY_LINK_LIST = [
-  { id: '소개', linkName: '소개' },
+  { id: '소개id', linkName: '소개' },
   { id: '도움말', linkName: '도움말' },
   { id: '홍보 센터', linkName: '홍보 센터' },
   { id: 'API', linkName: 'API' },

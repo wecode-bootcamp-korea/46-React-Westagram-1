@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Comment from '../components/Comment/Comment';
 import { COMPANY_LINK_LIST } from '../../kris/components/CompanyLink/CompanyLink';
 import './MainKris.scss';
 
 function MainKris() {
+  const [postList, setPostList] = useState([]);
   const [commentInput, setCommentInput] = useState('');
   const [commentList, setCommentList] = useState([]);
 
@@ -23,6 +25,12 @@ function MainKris() {
     }
   };
 
+  useEffect(() => {
+    fetch('/data/kris/feedData.json')
+      .then(res => res.json())
+      .then(result => setPostList(result));
+  }, []);
+
   return (
     <div className="main">
       <nav>
@@ -32,9 +40,9 @@ function MainKris() {
             src="/images/kris/instagram.png"
             alt="instagram-icon"
           />
-          <a href="" className="navbar-westagram">
+          <Link to="" className="navbar-westagram">
             Westagram
-          </a>
+          </Link>
         </div>
         <div className="navbar-search">
           <img
@@ -65,68 +73,60 @@ function MainKris() {
 
       <main>
         <div className="main-feeds">
-          <article className="feed-article">
-            <div className="feed-info">
-              <div className="feed-info-profile">
-                <img
-                  src="https://cdn.pixabay.com/photo/2023/05/15/12/44/food-7994980_960_720.jpg"
-                  alt="profile"
-                />
+          {postList.map(post => (
+            <article className="feed-article" key={post.id}>
+              <div className="feed-info">
+                <div className="feed-info-profile">
+                  <img src={post.authorProfileImage} alt="author-profile" />
+                </div>
+                <div className="feed-info-author">
+                  <Link to="">{post.author}</Link>
+                </div>
+              </div>
+              <div className="feed-image">
+                <img src={post.feedImage} alt="feed-image" />
               </div>
 
-              <div className="feed-info-author">
-                <a href="">back.end</a>
+              <div className="feed-interaction">
+                <img
+                  className="interaction-icon"
+                  src="/images/kris/heart.png"
+                  alt="heart-icon"
+                />
+                <img
+                  className="interaction-icon"
+                  src="/images/kris/comment.png"
+                  alt="comment-icon"
+                />
+                <img
+                  className="interaction-icon"
+                  src="/images/kris/share.png"
+                  alt="share-icon"
+                />
               </div>
-            </div>
-            <div className="feed-image">
-              <img
-                src="https://cdn.pixabay.com/photo/2023/05/15/12/44/food-7994980_960_720.jpg"
-                alt="feed-image"
-              />
-            </div>
-            <div className="feed-interaction">
-              <img
-                className="interaction-icon"
-                src="/images/kris/heart.png"
-                alt="heart-icon"
-              />
-              <img
-                className="interaction-icon"
-                src="/images/kris/comment.png"
-                alt="comment-icon"
-              />
-              <img
-                className="interaction-icon"
-                src="/images/kris/share.png"
-                alt="share-icon"
-              />
-            </div>
-            <div className="feed-text">
-              <span className="feed-text-author">back.end</span>
-              <span className="feed-text-writing">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                vitae lobortis arcu, ac suscipit elit. Integer eu ligula in
-                libero euismod dignissim id at lacus.{' '}
-              </span>
-            </div>
-            <div className="feed-comment-posted-container">
-              <Comment commentList={commentList} />
-            </div>
-            <div className="feed-add-comment">
-              <input
-                type="text"
-                id="comment"
-                name="comment"
-                placeholder="댓글 달기..."
-                onChange={handleCommentInput}
-                onKeyUp={handleKeyUp}
-                value={commentInput}
-              />
-              <button className="comment-button" onClick={handleCommentPost}>
-                게시
-              </button>
-            </div>
-          </article>
+              <div className="feed-text">
+                <span className="feed-text-author">{post.author}</span>
+                <span className="feed-text-writing">{post.feedText}</span>
+              </div>
+              <div className="feed-comment-posted-container">
+                <Comment commentList={commentList} id={post.id} />
+              </div>
+              <div className="feed-add-comment">
+                <input
+                  type="text"
+                  id="comment"
+                  name="comment"
+                  placeholder="댓글 달기..."
+                  onChange={handleCommentInput}
+                  onKeyUp={handleKeyUp}
+                  value={commentInput}
+                />
+                <button className="comment-button" onClick={handleCommentPost}>
+                  게시
+                </button>
+              </div>
+            </article>
+          ))}
         </div>
 
         <div className="main-right">
@@ -139,7 +139,7 @@ function MainKris() {
             </div>
 
             <div className="right-my-info-username-and-name">
-              <a href="">front.end</a>
+              <Link to="">front.end</Link>
               <br />
               <span className="my-name">Kris</span>
             </div>
@@ -148,7 +148,7 @@ function MainKris() {
           <article className="stories">
             <header className="stories-header">
               <span>스토리</span>
-              <a href="">모두 보기</a>
+              <Link to="">모두 보기</Link>
             </header>
 
             <div className="stories-info">
@@ -159,9 +159,9 @@ function MainKris() {
                 />
               </div>
               <div className="stories-username-and-time">
-                <a href="" className="stories-username">
+                <Link to="" className="stories-username">
                   github.init
-                </a>
+                </Link>
                 <br />
                 <span className="stories-time">1분 전</span>
               </div>
@@ -174,9 +174,9 @@ function MainKris() {
                 />
               </div>
               <div className="stories-username-and-time">
-                <a href="" className="stories-username">
+                <Link to="" className="stories-username">
                   developer.io
-                </a>
+                </Link>
                 <br />
                 <span className="stories-time">2시간 전</span>
               </div>
@@ -189,9 +189,9 @@ function MainKris() {
                 />
               </div>
               <div className="stories-username-and-time">
-                <a href="" className="stories-username">
+                <Link to="" className="stories-username">
                   stackoverflow_official
-                </a>
+                </Link>
                 <br />
                 <span className="stories-time">10시간 전</span>
               </div>
@@ -201,7 +201,7 @@ function MainKris() {
           <article className="recommendations">
             <header className="recommendations-header">
               <span>회원님을 위한 추천</span>
-              <a href="">모두 보기</a>
+              <Link to="">모두 보기</Link>
             </header>
 
             <div className="recommendations-info">
@@ -212,9 +212,9 @@ function MainKris() {
                 />
               </div>
               <div className="recommendations-username-and-mutual">
-                <a href="" className="recommendations-username">
+                <Link to="" className="recommendations-username">
                   sleepy.sleepy
-                </a>
+                </Link>
                 <br />
                 <span className="recommendations-mutual">
                   macbook.pro 외 5...
@@ -231,9 +231,9 @@ function MainKris() {
                 />
               </div>
               <div className="recommendations-username-and-mutual">
-                <a href="" className="recommendations-username">
+                <Link to="" className="recommendations-username">
                   hungry.hungry
-                </a>
+                </Link>
                 <br />
                 <span className="recommendations-mutual">
                   iphone14.pro 외 70...
@@ -248,16 +248,16 @@ function MainKris() {
               {COMPANY_LINK_LIST.map(companyLink => {
                 return (
                   <>
-                    <a href="" className="company-link" key={companyLink.id}>
+                    <Link key={companyLink.id} to="" className="company-link">
                       {companyLink.linkName}
-                    </a>
+                    </Link>
                     <span>・</span>
                   </>
                 );
               })}
             </div>
             <div className="company-copyright">
-              <a href="">© 2023 INSTAGRAM</a>
+              <Link to="">© 2023 INSTAGRAM</Link>
             </div>
           </section>
         </div>
