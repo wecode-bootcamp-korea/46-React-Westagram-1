@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import './LoginSuzin.scss';
 
@@ -21,7 +20,7 @@ const LoginSuzin = () => {
   }, [id, pw]);
 
   return (
-    <div id="loginking">
+    <div className="loginSuzin">
       <main id="loginBox">
         <div id="subjects">Westagram</div>
         <input
@@ -36,9 +35,6 @@ const LoginSuzin = () => {
           placeholder="비밀번호"
           onChange={saveUserPw}
         />
-        {/* <Link to="/main">
-          <button class="buttonBox">로그인</button>
-        </Link> */}
         <button
           class="buttonBox"
           onClick={() => {

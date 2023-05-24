@@ -3,11 +3,25 @@ import { FOOTER_BOX } from './footerInfoData';
 import './MainSuzin.scss';
 
 function MainSuzin() {
+  const [commentArray, setCommentArray] = useState([]);
   const [comment, setComment] = useState('');
-  const [inputValue, setInputValue] = useState('');
+
+  const commentInput = event => setComment(event.target.value);
+
+  const registComment = event => {
+    event.preventDefault();
+    if (comment === '') {
+      return;
+    }
+    setCommentArray(commentValueList => [...commentValueList, comment]);
+    setComment('');
+  };
+
+  const commentValid = comment.length >= 1;
+
   return (
     <>
-      <nav className="navigation">
+      <nav className="mainSuzin">
         <div id="logoBox">
           <img
             className="logoImage"
@@ -44,7 +58,6 @@ function MainSuzin() {
           />
         </div>
       </nav>
-
       <main className="feedMain">
         <div className="feeds">
           <article>
@@ -136,19 +149,37 @@ function MainSuzin() {
                     <button className="deleteBtn">삭제</button>
                   </div>
                 </li>
+                {commentArray.map((value, index) => (
+                  <li className="commentList" key={index}>
+                    <div className="commentListLeft">
+                      <span className="userName">bts_Sugar</span>
+                      <span className="mainWrite">{value}</span>
+                    </div>
+                    <div className="commentListRight">
+                      <img
+                        className="logoImageSmall"
+                        src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
+                        alt="하트"
+                      />
+                      <button className="deleteBtn">삭제</button>
+                    </div>
+                  </li>
+                ))}
               </ul>
               <div id="time">42분 전</div>
             </div>
-            <div id="commentBox">
+            <form id="commentBox" onSubmit={registComment}>
               <input
                 id="comment"
                 type="text"
                 placeholder="   댓글 달기..."
-                value={inputValue}
-                onChange={e => setInputValue(e.target.value)}
+                value={comment}
+                onChange={commentInput}
               />
-              <button className="commentBt">게시</button>
-            </div>
+              <button className="commentBt" onclick={registComment}>
+                게시
+              </button>
+            </form>
           </article>
         </div>
         <div className="main-right">
