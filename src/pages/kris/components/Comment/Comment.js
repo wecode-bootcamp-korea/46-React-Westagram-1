@@ -1,13 +1,13 @@
 import React from 'react';
 import './Comment.scss';
 
-const Comment = props => {
+const Comment = ({ commentList }) => {
   return (
     <>
-      {props.commentList.map((text, index) => (
+      {commentList.map((comment, index) => (
         <div className="comment-posted" key={index}>
           <span className="comment-posted-author">front.end</span>
-          <span className="comment-posted text">{text}</span>
+          <span className="comment-posted text">{comment}</span>
         </div>
       ))}
     </>

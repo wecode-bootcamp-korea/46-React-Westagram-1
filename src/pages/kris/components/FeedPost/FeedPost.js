@@ -4,6 +4,8 @@ import Comment from '../Comment/Comment';
 import './FeedPost.scss';
 
 const FeedPost = props => {
+  const { author, authorProfileImage, feedImage, feedText } = props;
+
   const [commentInput, setCommentInput] = useState('');
   const [commentList, setCommentList] = useState([]);
 
@@ -24,17 +26,17 @@ const FeedPost = props => {
   };
 
   return (
-    <article className="feed-post" key={props.key}>
+    <article className="feed-post">
       <div className="feed-info">
         <div className="feed-info-profile">
-          <img src={props.authorProfileImage} alt="author-profile" />
+          <img src={authorProfileImage} alt="author-profile" />
         </div>
         <div className="feed-info-author">
-          <Link to="">{props.author}</Link>
+          <Link to="">{author}</Link>
         </div>
       </div>
       <div className="feed-image">
-        <img src={props.feedImage} alt="feed-image" />
+        <img src={feedImage} alt="feed-image" />
       </div>
 
       <div className="feed-interaction">
@@ -55,11 +57,11 @@ const FeedPost = props => {
         />
       </div>
       <div className="feed-text">
-        <span className="feed-text-author">{props.author}</span>
-        <span className="feed-text-writing">{props.feedText}</span>
+        <span className="feed-text-author">{author}</span>
+        <span className="feed-text-writing">{feedText}</span>
       </div>
       <div className="feed-comment-posted-container">
-        <Comment commentList={commentList} key={props.key} />
+        <Comment commentList={commentList} />
       </div>
       <div className="feed-add-comment">
         <input
