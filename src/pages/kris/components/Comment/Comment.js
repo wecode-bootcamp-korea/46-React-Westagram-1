@@ -6,7 +6,8 @@ const Comment = props => {
     <>
       {props.commentList.map((text, index) => (
         <div className="comment-posted" key={index}>
-          {text}
+          <span className="comment-posted-author">front.end</span>
+          <span className="comment-posted text">{text}</span>
         </div>
       ))}
     </>

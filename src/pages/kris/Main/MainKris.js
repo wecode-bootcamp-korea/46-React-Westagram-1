@@ -1,29 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Comment from '../components/Comment/Comment';
+import FeedPost from '../components/FeedPost/FeedPost';
 import { COMPANY_LINK_LIST } from '../../kris/components/CompanyLink/CompanyLink';
 import './MainKris.scss';
 
 function MainKris() {
   const [postList, setPostList] = useState([]);
-  const [commentInput, setCommentInput] = useState('');
-  const [commentList, setCommentList] = useState([]);
-
-  const handleCommentInput = e => {
-    setCommentInput(e.target.value);
-  };
-
-  const handleCommentPost = () => {
-    if (commentInput !== '') {
-      setCommentList([...commentList, commentInput]);
-      setCommentInput('');
-    }
-  };
-  const handleKeyUp = e => {
-    if (e.key === 'Enter') {
-      handleCommentPost();
-    }
-  };
 
   useEffect(() => {
     fetch('/data/kris/feedData.json')
@@ -74,58 +56,13 @@ function MainKris() {
       <main>
         <div className="main-feeds">
           {postList.map(post => (
-            <article className="feed-article" key={post.id}>
-              <div className="feed-info">
-                <div className="feed-info-profile">
-                  <img src={post.authorProfileImage} alt="author-profile" />
-                </div>
-                <div className="feed-info-author">
-                  <Link to="">{post.author}</Link>
-                </div>
-              </div>
-              <div className="feed-image">
-                <img src={post.feedImage} alt="feed-image" />
-              </div>
-
-              <div className="feed-interaction">
-                <img
-                  className="interaction-icon"
-                  src="/images/kris/heart.png"
-                  alt="heart-icon"
-                />
-                <img
-                  className="interaction-icon"
-                  src="/images/kris/comment.png"
-                  alt="comment-icon"
-                />
-                <img
-                  className="interaction-icon"
-                  src="/images/kris/share.png"
-                  alt="share-icon"
-                />
-              </div>
-              <div className="feed-text">
-                <span className="feed-text-author">{post.author}</span>
-                <span className="feed-text-writing">{post.feedText}</span>
-              </div>
-              <div className="feed-comment-posted-container">
-                <Comment commentList={commentList} id={post.id} />
-              </div>
-              <div className="feed-add-comment">
-                <input
-                  type="text"
-                  id="comment"
-                  name="comment"
-                  placeholder="댓글 달기..."
-                  onChange={handleCommentInput}
-                  onKeyUp={handleKeyUp}
-                  value={commentInput}
-                />
-                <button className="comment-button" onClick={handleCommentPost}>
-                  게시
-                </button>
-              </div>
-            </article>
+            <FeedPost
+              key={post.id}
+              authorProfileImage={post.authorProfileImage}
+              author={post.author}
+              feedImage={post.feedImage}
+              feedText={post.feedText}
+            />
           ))}
         </div>
 

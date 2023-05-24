@@ -1,0 +1,89 @@
+.feed-post {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  min-width: 500px;
+  margin-bottom: 20px;
+  border: 1px solid lightgrey;
+  background-color: white;
+}
+
+.feed-info {
+  display: flex;
+  align-items: center;
+
+  padding: 15px;
+}
+
+.feed-info-profile {
+  width: 32px;
+  height: 32px;
+  margin: 0 10px 0 0;
+  overflow: hidden;
+  border-radius: 70%;
+  object-fit: cover;
+}
+
+.feed-info-profile img {
+  width: 100%;
+}
+
+.feed-info-author a {
+  color: black;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+.feed-image img {
+  width: 100%;
+}
+
+.feed-interaction {
+  display: flex;
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+.interaction-icon {
+  height: 25px;
+  margin-right: 15px;
+}
+
+.feed-comment-posted-container {
+  padding: 0 10px;
+}
+.feed-text-author {
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.feed-text {
+  margin: 10px 0 5px 0;
+  padding: 0 10px;
+  font-family: sans-serif;
+}
+
+.feed-add-comment {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  margin-top: 10px;
+
+  padding: 0 10px;
+}
+
+.feed-add-comment input {
+  width: 410px;
+  border: transparent;
+  background-color: transparent;
+  font-size: 15px;
+}
+
+.feed-add-comment button {
+  width: 40px;
+  border: transparent;
+  background-color: transparent;
+  color: #0995f6;
+  font-size: 15px;
+  font-weight: 600;
+}
