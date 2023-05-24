@@ -1,0 +1,4 @@
+
+
+fetch("/data/수진.json")
+

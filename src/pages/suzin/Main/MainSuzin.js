@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FOOTER_BOX } from './footerInfoData';
 import './MainSuzin.scss';
 
 function MainSuzin() {
+  const [comment, setComment] = useState('');
+  const [inputValue, setInputValue] = useState('');
   return (
     <>
       <nav className="navigation">
@@ -137,7 +140,13 @@ function MainSuzin() {
               <div id="time">42분 전</div>
             </div>
             <div id="commentBox">
-              <input id="comment" type="text" placeholder="   댓글 달기..." />
+              <input
+                id="comment"
+                type="text"
+                placeholder="   댓글 달기..."
+                value={inputValue}
+                onChange={e => setInputValue(e.target.value)}
+              />
               <button className="commentBt">게시</button>
             </div>
           </article>
@@ -254,17 +263,9 @@ function MainSuzin() {
 
             <footer>
               <p id="footerTop">
-                <span>Instagram 정보 · </span>
-                <span>지원 · </span>
-                <span>홍보 · </span>
-                <span>센터 · </span>
-                <span>채용정보 · </span>
-                <span>개인정보처리방침 · </span>
-                <span>약관 · </span>
-                <span>디렉터리 · </span>
-                <span>프로필 · </span>
-                <span>해시태그 · </span>
-                <span>언어 </span>
+                {FOOTER_BOX.map(footerInf => {
+                  return <a key={footerInf.id}>{footerInf.title}</a>;
+                })}
               </p>
               @ 2019 INSTAGRAM
             </footer>
