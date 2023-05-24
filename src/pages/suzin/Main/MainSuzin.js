@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FOOTER_BOX } from './footerInfoData';
+import Comment from './Comment';
 import './MainSuzin.scss';
 
 function MainSuzin() {
@@ -17,7 +18,8 @@ function MainSuzin() {
     setComment('');
   };
 
-  const commentValid = comment.length >= 1;
+  console.log(commentArray);
+  // const commentValid = comment.length >= 1;
 
   return (
     <>
@@ -150,20 +152,7 @@ function MainSuzin() {
                   </div>
                 </li>
                 {commentArray.map((value, index) => (
-                  <li className="commentList" key={index}>
-                    <div className="commentListLeft">
-                      <span className="userName">bts_Sugar</span>
-                      <span className="mainWrite">{value}</span>
-                    </div>
-                    <div className="commentListRight">
-                      <img
-                        className="logoImageSmall"
-                        src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
-                        alt="하트"
-                      />
-                      <button className="deleteBtn">삭제</button>
-                    </div>
-                  </li>
+                  <Comment value={value} index={index} />
                 ))}
               </ul>
               <div id="time">42분 전</div>
