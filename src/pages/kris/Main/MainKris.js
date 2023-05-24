@@ -55,15 +55,17 @@ function MainKris() {
 
       <main>
         <div className="main-feeds">
-          {postList.map(post => (
-            <FeedPost
-              key={post.id}
-              authorProfileImage={post.authorProfileImage}
-              author={post.author}
-              feedImage={post.feedImage}
-              feedText={post.feedText}
-            />
-          ))}
+          {postList.map(post => {
+            return (
+              <FeedPost
+                key={post.id}
+                authorProfileImage={post.authorProfileImage}
+                author={post.author}
+                feedImage={post.feedImage}
+                feedText={post.feedText}
+              />
+            );
+          })}
         </div>
 
         <div className="main-right">
