@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FOOTER_BOX } from './footerInfoData';
 import Comment from './Comment';
 import './MainSuzin.scss';
@@ -6,6 +6,7 @@ import './MainSuzin.scss';
 function MainSuzin() {
   const [commentArray, setCommentArray] = useState([]);
   const [comment, setComment] = useState('');
+  const [feeds, setFeeds] = useState([]);
 
   const commentInput = event => setComment(event.target.value);
 
@@ -18,8 +19,13 @@ function MainSuzin() {
     setComment('');
   };
 
-  console.log(commentArray);
-  // const commentValid = comment.length >= 1;
+  useEffect(() => {
+    fetch('data/data.json')
+      .then(res => res.json())
+      .then(data => {
+        setFeeds(data);
+      });
+  }, []);
 
   return (
     <>
@@ -60,116 +66,127 @@ function MainSuzin() {
           />
         </div>
       </nav>
+
       <main className="feedMain">
-        <div className="feeds">
-          <article>
-            <div id="articleTop">
-              <div id="articleTopLeft">
-                <img
-                  class="profileImage"
-                  src="./images/suzin/wecode_logo_1590553949.webp"
-                  alt="프로필"
-                />
-                <div className="userLine">
-                  <p className="subject">wecode_bootcamp</p>
-                  <p className="additional">Wecode - 위코드</p>
-                </div>
-              </div>
-              <img id="moreIcon" src="./images/suzin/더보기.png" alt="더보기" />
-            </div>
-            <img
-              id="articleImg"
-              src="./images/suzin/article사진.avif"
-              alt="과일"
-            />
-            <div id="feedIcon">
-              <div id="iconLeft">
-                <img
-                  className="icon"
-                  src="./images/suzin/favorite.png"
-                  alt="좋아요"
-                />
-                <img
-                  className="icon"
-                  src="./images/suzin/comment.png"
-                  alt="채팅"
-                />
-                <img
-                  className="icon"
-                  src="./images/suzin/download.png"
-                  alt="공유"
-                />
-              </div>
-              <div id="iconRight">
-                <img
-                  className="icon"
-                  src="./images/suzin/bookmark.png"
-                  alt="저장"
-                />
-              </div>
-            </div>
-            <div id="articleBottom">
-              <div id="feedLikeBox">
-                <img
-                  id="likeBoxImg"
-                  src="./images/suzin/flower.avif"
-                  alt="사진"
-                />
-                <p id="likeBoxText">aineworld님 외 10명이 좋아합니다</p>
-              </div>
-              <div id="content">
-                <span className="userName">wecode_bootcamp </span>
-                <span>과일처럼 상큼한 여러분~</span>
-                <span id="more">더 보기</span>
-              </div>
-              <ul>
-                <li className="commentList">
-                  <div className="commentListLeft">
-                    <span className="userName">zosuzin</span>
-                    <span className="mainWrite"> 완전 맛있겠다~~~</span>
-                  </div>
-                  <div className="commentListRight">
+        <div>
+          {feeds.map(feed => {
+            return (
+              <div className="feeds" key={feed.id}>
+                <article>
+                  <div id="articleTop">
+                    <div id="articleTopLeft">
+                      <img
+                        class="profileImage"
+                        src={feed.userProfileImg}
+                        alt="프로필"
+                      />
+                      <div className="userLine">
+                        <p className="subject">{feed.user}</p>
+                        <p className="additional">Wecode - 위코드</p>
+                      </div>
+                    </div>
                     <img
-                      className="logoImageSmall"
-                      src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
-                      alt="하트"
+                      id="moreIcon"
+                      src="./images/suzin/더보기.png"
+                      alt="더보기"
                     />
-                    <button className="deleteBtn">삭제</button>
                   </div>
-                </li>
-                <li className="commentList">
-                  <div className="commentListLeft">
-                    <span className="userName">bts_RM</span>
-                    <span className="mainWrite"> 상큼 YO~~</span>
+                  <img
+                    id="articleImg"
+                    src={feed.feedImg}
+                    alt="피드게시물이미지"
+                  />
+                  <div id="feedIcon">
+                    <div id="iconLeft">
+                      <img
+                        className="icon"
+                        src="./images/suzin/favorite.png"
+                        alt="좋아요"
+                      />
+                      <img
+                        className="icon"
+                        src="./images/suzin/comment.png"
+                        alt="채팅"
+                      />
+                      <img
+                        className="icon"
+                        src="./images/suzin/download.png"
+                        alt="공유"
+                      />
+                    </div>
+                    <div id="iconRight">
+                      <img
+                        className="icon"
+                        src="./images/suzin/bookmark.png"
+                        alt="저장"
+                      />
+                    </div>
                   </div>
-                  <div className="commentListRight">
-                    <img
-                      className="logoImageSmall"
-                      src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
-                      alt="하트"
+                  <div id="articleBottom">
+                    <div id="feedLikeBox">
+                      <img
+                        id="likeBoxImg"
+                        src="./images/suzin/flower.avif"
+                        alt="사진"
+                      />
+                      <p id="likeBoxText">aineworld님 외 10명이 좋아합니다</p>
+                    </div>
+                    <div id="content">
+                      <span className="userName">wecode_bootcamp</span>
+                      <span>과일처럼 상큼한 여러분~</span>
+                      <span id="more">더 보기</span>
+                    </div>
+                    <ul>
+                      <li className="commentList">
+                        <div className="commentListLeft">
+                          <span className="userName">zosuzin</span>
+                          <span className="mainWrite"> 완전 맛있겠다~~~</span>
+                        </div>
+                        <div className="commentListRight">
+                          <img
+                            className="logoImageSmall"
+                            src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
+                            alt="하트"
+                          />
+                          <button className="deleteBtn">삭제</button>
+                        </div>
+                      </li>
+                      <li className="commentList">
+                        <div className="commentListLeft">
+                          <span className="userName">bts_RM</span>
+                          <span className="mainWrite"> 상큼 YO~~</span>
+                        </div>
+                        <div className="commentListRight">
+                          <img
+                            className="logoImageSmall"
+                            src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
+                            alt="하트"
+                          />
+                          <button className="deleteBtn">삭제</button>
+                        </div>
+                      </li>
+                      {commentArray.map((value, index) => (
+                        <Comment key={value.id} value={value} index={index} />
+                      ))}
+                    </ul>
+                    <div id="time">42분 전</div>
+                  </div>
+                  <form id="commentBox" onSubmit={registComment}>
+                    <input
+                      id="comment"
+                      type="text"
+                      placeholder="   댓글 달기..."
+                      value={comment}
+                      onChange={commentInput}
                     />
-                    <button className="deleteBtn">삭제</button>
-                  </div>
-                </li>
-                {commentArray.map((value, index) => (
-                  <Comment value={value} index={index} />
-                ))}
-              </ul>
-              <div id="time">42분 전</div>
-            </div>
-            <form id="commentBox" onSubmit={registComment}>
-              <input
-                id="comment"
-                type="text"
-                placeholder="   댓글 달기..."
-                value={comment}
-                onChange={commentInput}
-              />
-              <button className="commentBt" onclick={registComment}>
-                게시
-              </button>
-            </form>
-          </article>
+                    <button className="commentBt" onclick={registComment}>
+                      게시
+                    </button>
+                  </form>
+                </article>
+              </div>
+            );
+          })}
         </div>
         <div className="main-right">
           <div className="user">
