@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import FeedPost from '../components/FeedPost/FeedPost';
+import Stories from '../components/Stories/Stories';
 import { COMPANY_LINK_LIST } from '../../kris/components/CompanyLink/CompanyLink';
 import './MainKris.scss';
 
@@ -84,12 +85,14 @@ function MainKris() {
             </div>
           </section>
 
-          <article className="stories">
+          <article className="stories-container">
             <header className="stories-header">
               <span>스토리</span>
               <Link to="">모두 보기</Link>
             </header>
 
+            <Stories />
+            {/* 
             <div className="stories-info">
               <div className="stories-user-profile">
                 <img
@@ -134,7 +137,7 @@ function MainKris() {
                 <br />
                 <span className="stories-time">10시간 전</span>
               </div>
-            </div>
+            </div> */}
           </article>
 
           <article className="recommendations">

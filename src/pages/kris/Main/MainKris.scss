@@ -146,7 +146,7 @@ input:focus {
     font-weight: 350;
   }
 
-  .stories {
+  .stories-container {
     max-height: 400px;
 
     margin-bottom: 20px;
@@ -170,44 +170,6 @@ input:focus {
 
   .stories-header a {
     color: black;
-  }
-
-  .stories-info {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-
-    margin-bottom: 12px;
-  }
-
-  .stories-user-profile {
-    width: 50px;
-    height: 50px;
-    overflow: hidden;
-    border-radius: 70%;
-    object-fit: cover;
-  }
-
-  .stories-user-profile img {
-    width: 100%;
-  }
-
-  .stories-username-and-time {
-    width: 180px;
-    margin-left: 15px;
-  }
-
-  .stories-username {
-    color: black;
-    font-family: sans-serif;
-    font-weight: 600;
-  }
-
-  .stories-time {
-    margin: 3px 0 0 0;
-    color: rgb(148, 148, 148);
-    font-family: sans-serif;
-    font-weight: 350;
   }
 
   .recommendations {

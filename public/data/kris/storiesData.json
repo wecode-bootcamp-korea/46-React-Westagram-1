@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "profileImage": "https://cdn.pixabay.com/photo/2023/05/15/12/44/food-7994980_960_720.jpg",
+    "username": "github.init",
+    "time": "1분"
+  },
+
+  {
+    "id": 1,
+    "profileImage": "https://cdn.pixabay.com/photo/2023/05/15/12/44/food-7994980_960_720.jpg",
+    "username": "npm.start",
+    "time": "2시간"
+  },
+
+  {
+    "id": 1,
+    "profileImage": "https://cdn.pixabay.com/photo/2023/05/15/12/44/food-7994980_960_720.jpg",
+    "username": "refactoring",
+    "time": "14시간"
+  }
+]

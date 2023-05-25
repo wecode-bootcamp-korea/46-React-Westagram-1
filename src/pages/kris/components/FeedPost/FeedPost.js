@@ -26,7 +26,7 @@ const FeedPost = props => {
   };
 
   return (
-    <article className="feed-post">
+    <article className="feed">
       <div className="feed-info">
         <div className="feed-info-profile">
           <img src={authorProfileImage} alt="author-profile" />

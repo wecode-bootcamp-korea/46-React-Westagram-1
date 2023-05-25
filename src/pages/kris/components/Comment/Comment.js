@@ -3,7 +3,7 @@ import './Comment.scss';
 
 const Comment = ({ commentList }) => {
   return (
-    <>
+    <div className="comment">
       {commentList.map((comment, index) => {
         return (
           <div className="comment-posted" key={index}>
@@ -12,7 +12,7 @@ const Comment = ({ commentList }) => {
           </div>
         );
       })}
-    </>
+    </div>
   );
 };
 export default Comment;
