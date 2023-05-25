@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "user": "SUGAR",
+    "userProfileImg": "https://images.unsplash.com/photo-1684509842402-05193d33907d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+    "feedImg": "https://images.unsplash.com/photo-1583515778304-cf6d99c879b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2008&q=80"
+  },
+  {
+    "id": 2,
+    "user": "RM",
+    "userProfileImg": "https://images.unsplash.com/photo-1583515778304-cf6d99c879b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2008&q=80",
+    "feedImg": "https://plus.unsplash.com/premium_photo-1683121324549-84fc1d876464?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+  },
+  {
+    "id": 3,
+    "user": "JIMIN",
+    "userProfileImg": "https://images.unsplash.com/photo-1583515778304-cf6d99c879b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2008&q=80",
+    "feedImg": "https://images.unsplash.com/photo-1583515778304-cf6d99c879b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2008&q=80"
+  }
+]

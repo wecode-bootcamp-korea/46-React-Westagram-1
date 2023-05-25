@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "recommendImg": "https://images.unsplash.com/photo-1682686581580-d99b0230064e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    "userName": "joaaaaah",
+    "recommendWrite": "yumy님 외 2명이 팔로우합니다"
+  },
+  {
+    "id": 2,
+    "recommendImg": "https://images.unsplash.com/photo-1683526976156-1a3f1a315049?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80",
+    "userName": "rampart",
+    "recommendWrite": "drink님 외 12명이 팔로우합니다"
+  },
+  {
+    "id": 3,
+    "recommendImg": "https://images.unsplash.com/photo-1683669260701-2a12766c2bb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    "userName": "shawn",
+    "recommendWrite": "jimmy님 외 1명이 팔로우합니다"
+  }
+]
