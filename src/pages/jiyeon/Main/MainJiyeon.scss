@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
 
 @import 'src/styles/jiyeon/mixin.scss';
 @import 'src/styles/variables.scss';
@@ -234,7 +235,9 @@
   .feeds {
     width: 480px;
     margin-right: 20px;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
   }
 
   .feedTop {
@@ -269,14 +272,15 @@
     margin-right: 10px;
   }
 
-  .articles {
+  .Feed {
     float: left;
     width: 480px;
     border: 2px solid #f1f1f1;
     background-color: white;
+    margin-bottom: 10px;
   }
 
-  .articles > img {
+  .Feed > img {
     width: 477px;
   }
 
@@ -307,7 +311,6 @@
   .grey {
     font-size: 12px;
     color: #999999;
-    margin-top: 10px;
   }
 
   .bold {

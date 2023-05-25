@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import Story from './Story';
+import FeedContents from './Feed';
+import Recommend from './Recommend';
 
 import './MainJiyeon.scss';
-import FeedContents from './feed';
 
 const MainJiyeon = () => {
   const [data, setData] = useState([]);
   const [feedData, setFeedData] = useState([]);
+  const [storyData, setStoryData] = useState([]);
+  const [recommend, setRecommend] = useState([]);
 
   useEffect(() => {
     fetch('/data/data.json')
@@ -15,6 +19,14 @@ const MainJiyeon = () => {
     fetch('/data/feedData.json')
       .then(response => response.json())
       .then(result => setFeedData(result));
+
+    fetch('/data/storyData.json')
+      .then(response => response.json())
+      .then(result => setStoryData(result));
+
+    fetch('/data/Recommend.json')
+      .then(response => response.json())
+      .then(result => setRecommend(result));
   }, []);
 
   return (
@@ -70,14 +82,15 @@ const MainJiyeon = () => {
 
       <div className="main">
         <div className="feeds"></div>
-
-        {feedData.map(function (feedData) {
-          return (
-            <div key={feedData.id}>
-              <FeedContents feedData={feedData} />
-            </div>
-          );
-        })}
+        <div className="feedBox">
+          {feedData.map(function (feedData) {
+            return (
+              <div key={feedData.id}>
+                <FeedContents feedData={feedData} />
+              </div>
+            );
+          })}
+        </div>
         <div className="mainRight">
           <div className="top">
             <img
@@ -97,52 +110,9 @@ const MainJiyeon = () => {
               <span>모두 보기</span>
             </div>
 
-            <div className="personalInform">
-              <img
-                src="/images/jiyeon/KakaoTalk_20230509_143849516.jpg"
-                alt="profilePhoto"
-              />
-
-              <div className="storyRecommend">
-                <span className="bold">_yum_s</span>
-                <br />
-                <span className="grey">12분 전</span>
-              </div>
-            </div>
-
-            <div className="personalInform">
-              <img
-                src="/images/jiyeon/KakaoTalk_20230509_143849516_01.jpg"
-                alt="profilePhoto"
-              />
-              <div className="storyRecommend">
-                <span className="bold">drink_eat_dring</span>
-                <br />
-                <span className="grey">1시간 전</span>
-              </div>
-            </div>
-            <div className="personalInform">
-              <img
-                src="/images/jiyeon/KakaoTalk_20230509_143849516_02.jpg"
-                alt="profilePhoto"
-              />
-              <div className="storyRecommend">
-                <span className="bold">hyukyc</span>
-                <br />
-                <span className="grey">5시간 전</span>
-              </div>
-            </div>
-            <div className="personalInform">
-              <img
-                src="/images/jiyeon/KakaoTalk_20230509_143849516_03.jpg"
-                alt="profilePhoto"
-              />
-              <div className="storyRecommend">
-                <span className="bold">jminkeek</span>
-                <br />
-                <span className="grey">16시간 전</span>
-              </div>
-            </div>
+            {storyData.map(function (storyData) {
+              return <Story storyData={storyData} key={storyData.id} />;
+            })}
           </div>
 
           <div className="rightLower">
@@ -150,45 +120,9 @@ const MainJiyeon = () => {
               <span className="grey">회원님을 위한 추천</span>
               <span>모두 보기</span>
             </div>
-
-            <div className="personalInform">
-              <img
-                src="/images/jiyeon/KakaoTalk_20230509_143849516_04.jpg"
-                alt="profilePhoto"
-              />
-
-              <div className="storyRecommend">
-                <span className="bold">ioaaaaa</span>
-                <br />
-                <span className="grey">ioaaaaa 님 외 2명이...</span>
-              </div>
-              <button>팔로우</button>
-            </div>
-
-            <div className="personalInform">
-              <img
-                src="/images/jiyeon/KakaoTalk_20230509_143849516.jpg"
-                alt="profilePhoto"
-              />
-              <div className="storyRecommend">
-                <span className="bold">jedlsi</span>
-                <br />
-                <span className="grey">ioaaaaa 님 외 2명이...</span>
-              </div>
-              <button>팔로우</button>
-            </div>
-            <div className="personalInform">
-              <img
-                src="/images/jiyeon/KakaoTalk_20230509_143849516_01.jpg"
-                alt="profilePhoto"
-              />
-              <div className="storyRecommend">
-                <span className="bold">ellda</span>
-                <br />
-                <span className="grey">ioaaaaa 님 외 2명이...</span>
-              </div>
-              <button>팔로우</button>
-            </div>
+            {recommend.map(function (recommend) {
+              return <Recommend recommend={recommend} key={recommend.id} />;
+            })}
           </div>
 
           <div className="grey westagramInform">

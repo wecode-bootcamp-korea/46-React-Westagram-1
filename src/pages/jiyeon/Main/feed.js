@@ -8,43 +8,55 @@ const WriteNewComment = props => {
     <div className="existComment">
       <span className="bold">neceosecius</span>
       <span>{props.comment}</span>
-      <button className="deleteBtn">삭제</button>
-      {/* {comment.slice(i, 1)} */}
+      <button
+        onClick={() => props.deleteComments(props.index)}
+        className="deleteBtn"
+      >
+        삭제
+      </button>
       <img className="heartIcon" src="/images/jiyeon/heart.png" alt="comment" />
     </div>
   );
 };
 
 const FeedContents = props => {
-  console.log(props);
-  // const [feedData, setFeedData] = useState();
   const [comment, setComment] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [addComment, setAddComment] = useState();
-
-  console.log(comment);
+  const [deleteComment, setDeleteComment] = useState([]);
 
   const addCommentEnter = e => {
     if (e.key === 'Enter' && inputValue.length > 0) {
       let copy = [...comment];
-      comment.push(inputValue);
+      comment.push({ id: comment.length, value: inputValue });
       setAddComment(copy);
       setInputValue('');
-      console.log(comment);
+      //갑자기 한글만 마지막 글자가 한번 더 출력돼요ㅠㅠ!
     }
   };
 
-  const addComments = () => {
+  const addComments = e => {
+    e.preventDefault();
     if (inputValue.length > 0) {
       let copy = [...comment];
-      comment.push(inputValue);
+
+      comment.push({ id: comment.length, value: inputValue });
       setAddComment(copy);
       setInputValue('');
     }
+  };
+
+  const deleteComments = id => {
+    let copy = [...comment];
+    // let result = copy.filter(el => el !== id); --> 내용이 동일한 댓글은 모두 삭제
+    const result = copy.filter(el => el.id !== id); //id 값으로 특정 댓글만 삭제ㅗ
+    setComment(result);
+    //filter로 해보고 싶었는데 실패! filter 다시 찾아보기!!!
+    // !== 로 제외시키는 거 까지는 알겠는데, 인자 전달을 어떻게 해야할지 모르겠음!
   };
 
   return (
-    <article className="articles">
+    <article className="Feed">
       <div className="feedTop">
         <div className="personal">
           <img
@@ -84,6 +96,7 @@ const FeedContents = props => {
         </div>
         <div className="comment">
           <span className="bold">yeonnn</span> {props.feedData.FeedContents}
+          <span>{props.feedData.feedContents}</span>
           <span className="grey">...더 보기</span>
           <div className="grey">댓글 127개 모두 보기</div>
         </div>
@@ -98,11 +111,14 @@ const FeedContents = props => {
           />
         </div>
 
-        {comment.map(function (a, i) {
+        {comment.map(function (a) {
           return (
-            <WriteNewComment comment={a} key={i} index={i} />
-            // 인자 comment => a / a => a / comment => comment : comment 배열 내 index 내에서 또 index 를 돌려요!
-            // index = i, key = i, props.index 만 작동 돼요!!
+            <WriteNewComment
+              comment={a.value}
+              deleteComments={deleteComments}
+              key={a.id}
+              index={a.id}
+            />
           );
         })}
 
@@ -111,17 +127,19 @@ const FeedContents = props => {
       </div>
 
       <div className="line2"></div>
-      <input
-        className="newComment"
-        type="text"
-        placeholder="댓글 달기..."
-        value={inputValue}
-        onChange={e => {
-          setInputValue(e.target.value);
-        }}
-        onKeyDown={addCommentEnter}
-      />
-      <button onClick={addComments}>게시</button>
+      <form>
+        <input
+          className="newComment"
+          type="text"
+          placeholder="댓글 달기..."
+          value={inputValue}
+          onChange={e => {
+            setInputValue(e.target.value);
+          }}
+          // onKeyDown={addCommentEnter}
+        />
+        <button onClick={addComments}>게시</button>
+      </form>
     </article>
   );
 };

@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
 @import 'src/styles/jiyeon/mixin.scss';
 @import 'src/styles/variables.scss';
 
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+}
 #wrapLogin {
   @include size(620px, 700px);
   padding: 50px;
