@@ -19,6 +19,34 @@ const LoginSuzin = () => {
     id.includes('@') && pw.length > 4 ? setBt('blue') : setBt('skyblue');
   }, [id, pw]);
 
+  ///////////////////
+
+  const signUpFetch = () => {
+    fetch('http://10.58.52.155:8000/auth/signin', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json;charset=utf-8' },
+      body: JSON.stringify({
+        email: id,
+        password: pw,
+      }),
+    })
+      .then(response =>
+        // response값 확인하자! console.log(response);
+        response.json()
+      )
+      .then(result => {
+        // result값 확인하자! console.log(result);
+        if (result.accessToken !== undefined) {
+          alert('로그인 성공');
+          localStorage.setItem('access_token :', result.accessToken);
+        } else {
+          alert('로그인 실패');
+        }
+      });
+  };
+
+  ///////////////////
+
   return (
     <div className="loginSuzin">
       <main id="loginBox">
@@ -38,7 +66,8 @@ const LoginSuzin = () => {
         <button
           class="buttonBox"
           onClick={() => {
-            navigate('/mainsuzin');
+            signUpFetch();
+            // navigate('/mainsuzin');
           }}
           style={{ backgroundColor: bt }}
           disabled={bt === 'skyblue'}

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { FOOTER_BOX } from './footerInfoData';
 import Comment from './Comment';
+import { FOOTER_BOX } from './footerInfoData';
 import './MainSuzin.scss';
 
 function MainSuzin() {
   const [commentArray, setCommentArray] = useState([]);
   const [comment, setComment] = useState('');
   const [feeds, setFeeds] = useState([]);
+  const [recommend, setRecommend] = useState([]);
 
   const commentInput = event => setComment(event.target.value);
 
@@ -24,6 +25,14 @@ function MainSuzin() {
       .then(res => res.json())
       .then(data => {
         setFeeds(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch('data/recommend.json')
+      .then(res => res.json())
+      .then(data => {
+        setRecommend(data);
       });
   }, []);
 
@@ -247,55 +256,30 @@ function MainSuzin() {
               <p>회원님을 위한 추천</p>
               <p className="allSee">모두 보기</p>
             </div>
-            <div className="userTwoBox">
-              <div className="userTwo">
-                <img
-                  className="profileImage"
-                  src="https://images.unsplash.com/photo-1682686581580-d99b0230064e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
-                  alt="프로필"
-                />
-                <div className="recommend">
-                  <div className="recommendName">
-                    <p className="subject">joaaaaah</p>
-                    <p className="additional">yumy님 외 2명이 팔로우합니다</p>
-                  </div>
-                </div>
-              </div>
-              <button>팔로우</button>
-            </div>
 
-            <div className="userTwoBox">
-              <div className="userTwo">
-                <img
-                  className="profileImage"
-                  src="https://images.unsplash.com/photo-1683526976156-1a3f1a315049?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80"
-                  alt="프로필"
-                />
-                <div className="recommend">
-                  <div className="recommendName">
-                    <p className="subject">rampart</p>
-                    <p className="additional">drink님 외 12명이 팔로우합니다</p>
+            <div>
+              {recommend.map(recommendInf => {
+                return (
+                  <div className="userTwoBox">
+                    <div className="userTwo">
+                      <img
+                        className="profileImage"
+                        src={recommendInf.recommendImg}
+                        alt="프로필"
+                      />
+                      <div className="recommend">
+                        <div className="recommendName">
+                          <p className="subject">{recommendInf.userName}</p>
+                          <p className="additional">
+                            {recommendInf.recommendWrite}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <button>팔로우</button>
                   </div>
-                </div>
-              </div>
-              <button>팔로우</button>
-            </div>
-
-            <div className="userTwoBox">
-              <div className="userTwo">
-                <img
-                  className="profileImage"
-                  src="https://images.unsplash.com/photo-1683669260701-2a12766c2bb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
-                  alt="프로필"
-                />
-                <div className="recommend">
-                  <div className="recommendName">
-                    <p className="subject">shawn</p>
-                    <p className="additional">jimmy님 외 1명이 팔로우합니다</p>
-                  </div>
-                </div>
-              </div>
-              <button>팔로우</button>
+                );
+              })}
             </div>
 
             <footer>
