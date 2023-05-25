@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "author": "back.end",
+    "authorProfileImage": "https://cdn.pixabay.com/photo/2023/05/15/12/44/food-7994980_960_720.jpg",
+    "feedImage": "https://cdn.pixabay.com/photo/2023/05/15/12/44/food-7994980_960_720.jpg",
+    "feedText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae lobortis arcu, ac suscipit elit. Integer eu ligula in libero euismod dignissim id at lacus."
+  },
+
+  {
+    "id": 1,
+    "author": "king",
+    "authorProfileImage": "https://cdn.pixabay.com/photo/2023/05/15/12/44/food-7994980_960_720.jpg",
+    "feedImage": "https://cdn.pixabay.com/photo/2023/05/15/12/44/food-7994980_960_720.jpg",
+    "feedText": "Nunc quis elementum lacus, eu vehicula lacus. Sed interdum, turpis et pellentesque dictum, odio mi efficitur tellus, quis iaculis risus enim vel odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer congue orci at lacus luctus, vel lobortis felis tincidunt."
+  },
+
+  {
+    "id": 1,
+    "author": "queen",
+    "authorProfileImage": "https://cdn.pixabay.com/photo/2023/05/15/12/44/food-7994980_960_720.jpg",
+    "feedImage": "https://cdn.pixabay.com/photo/2023/05/15/12/44/food-7994980_960_720.jpg",
+    "feedText": "In quis maximus ipsum. Praesent tristique metus scelerisque erat maximus commodo. Fusce ut dui dictum elit vulputate interdum vel sed justo."
+  }
+]

@@ -1,0 +1,266 @@
+@import '../../../styles/reset';
+@import '../../../styles/common';
+@media only screen and (max-width: 1000px) {
+  .main-right {
+    display: none;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+span {
+  overflow-wrap: anywhere;
+}
+
+div {
+  overflow-wrap: anywhere;
+}
+
+input:focus {
+  outline: none;
+}
+
+.main {
+  nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    align-items: center;
+    justify-content: space-evenly;
+    min-width: 800px;
+    height: 60px;
+    background-color: white;
+  }
+
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .instagram-icon {
+    width: 30px;
+    margin-right: 10px;
+  }
+
+  .navbar-westagram {
+    color: black;
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
+  }
+
+  .navbar-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 25px;
+
+    padding: 0 5px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 3px;
+    background-color: rgb(241, 241, 241);
+  }
+
+  .navbar-search-icon {
+    width: 12px;
+    margin-right: 5px;
+  }
+
+  .navbar-search input {
+    height: 15px;
+    border: transparent;
+    background-color: transparent;
+  }
+
+  .navbar-search input::placeholder {
+    font-size: 13px;
+  }
+
+  .navbar-icons {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-icons img {
+    width: 30px;
+    margin-left: 25px;
+  }
+
+  .navbar-icons .navbar-icon-profile {
+    overflow: hidden;
+    border-radius: 70%;
+    object-fit: cover;
+  }
+
+  main {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 80px;
+    background-color: #f1f1f1;
+  }
+
+  .main-right {
+    width: 320px;
+  }
+
+  .right-my-info {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 20px;
+    padding: 5px;
+  }
+
+  .right-my-info-profile {
+    width: 50px;
+    height: 50px;
+
+    margin: 0 20px 0 5px;
+    overflow: hidden;
+    border-radius: 70%;
+    object-fit: cover;
+  }
+
+  .right-my-info-profile img {
+    width: 100%;
+  }
+
+  .right-my-info-username-and-name a {
+    color: black;
+    font-family: sans-serif;
+    font-weight: 600;
+  }
+
+  .my-name {
+    color: rgb(148, 148, 148);
+    font-family: sans-serif;
+    font-size: 15px;
+    font-weight: 350;
+  }
+
+  .stories-container {
+    max-height: 400px;
+
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid lightgrey;
+    background-color: white;
+  }
+
+  .stories-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+    font-weight: 600;
+  }
+
+  .stories-header span {
+    color: rgb(152, 152, 152);
+  }
+
+  .stories-header a {
+    color: black;
+  }
+
+  .recommendations {
+    max-height: 300px;
+
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid lightgrey;
+    background-color: white;
+  }
+
+  .recommendations-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+    font-family: sans-serif;
+    font-weight: 600;
+  }
+
+  .recommendations-header span {
+    color: rgb(152, 152, 152);
+  }
+
+  .recommendations-header a {
+    color: black;
+  }
+
+  .recommendations-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    margin-bottom: 12px;
+  }
+
+  .recommendations-user-profile {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 70%;
+    object-fit: cover;
+  }
+
+  .recommendations-user-profile img {
+    width: 100%;
+  }
+
+  .recommendations-username-and-mutual {
+    width: 160px;
+
+    margin-left: 15px;
+  }
+
+  .recommendations-username {
+    color: black;
+    font-family: sans-serif;
+    font-weight: 600;
+  }
+
+  .recommendations-mutual {
+    margin: 3px 0 0 0;
+    color: rgb(148, 148, 148);
+    font-family: sans-serif;
+    font-weight: 350;
+  }
+
+  .recommendations-info button {
+    width: 60px;
+    padding: 0;
+    border: transparent;
+    background-color: transparent;
+    color: #0995f6;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .company-info {
+    padding: 5px;
+  }
+
+  .company-link-container {
+    margin-bottom: 20px;
+    color: rgb(175, 175, 175);
+    font-size: 14px;
+  }
+
+  .company-copyright a {
+    color: rgb(175, 175, 175);
+    font-family: sans-serif;
+    font-size: 15px;
+  }
+}

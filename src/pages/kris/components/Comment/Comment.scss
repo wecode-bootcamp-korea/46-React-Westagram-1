@@ -1,0 +1,31 @@
+.comment {
+  .comment-posted {
+    margin-top: 10px;
+    font-family: sans-serif;
+  }
+
+  .comment-posted-author {
+    margin-right: 10px;
+    font-weight: 600;
+  }
+
+  .comment-posted-text {
+    width: 320px;
+    margin-right: 20px;
+  }
+
+  .comment-posted i {
+    margin-right: 5px;
+    color: #757575;
+    font-size: 12px;
+  }
+
+  .comment-posted button {
+    width: 30px;
+    border: transparent;
+    background-color: transparent;
+    color: #6c6c6c;
+    font-size: 10px;
+    font-weight: 600;
+  }
+}
