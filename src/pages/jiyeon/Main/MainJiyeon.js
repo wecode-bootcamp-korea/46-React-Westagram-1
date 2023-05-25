@@ -6,15 +6,15 @@ import Recommend from './Recommend';
 import './MainJiyeon.scss';
 
 const MainJiyeon = () => {
-  const [data, setData] = useState([]);
+  const [westaData, setWestaData] = useState([]);
   const [feedData, setFeedData] = useState([]);
   const [storyData, setStoryData] = useState([]);
-  const [recommend, setRecommend] = useState([]);
+  const [recommendData, setRecommendData] = useState([]);
 
   useEffect(() => {
     fetch('/data/data.json')
       .then(response => response.json())
-      .then(result => setData(result));
+      .then(result => setWestaData(result));
 
     fetch('/data/feedData.json')
       .then(response => response.json())
@@ -26,7 +26,7 @@ const MainJiyeon = () => {
 
     fetch('/data/Recommend.json')
       .then(response => response.json())
-      .then(result => setRecommend(result));
+      .then(result => setRecommendData(result));
   }, []);
 
   return (
@@ -83,10 +83,10 @@ const MainJiyeon = () => {
       <div className="main">
         <div className="feeds"></div>
         <div className="feedBox">
-          {feedData.map(function (feedData) {
+          {feedData.map(function (feed) {
             return (
-              <div key={feedData.id}>
-                <FeedContents feedData={feedData} />
+              <div key={feed.id}>
+                <FeedContents feedData={feed} />
               </div>
             );
           })}
@@ -110,8 +110,8 @@ const MainJiyeon = () => {
               <span>모두 보기</span>
             </div>
 
-            {storyData.map(function (storyData) {
-              return <Story storyData={storyData} key={storyData.id} />;
+            {storyData.map(function (story) {
+              return <Story storyData={story} key={story.id} />;
             })}
           </div>
 
@@ -120,13 +120,13 @@ const MainJiyeon = () => {
               <span className="grey">회원님을 위한 추천</span>
               <span>모두 보기</span>
             </div>
-            {recommend.map(function (recommend) {
+            {recommendData.map(function (recommend) {
               return <Recommend recommend={recommend} key={recommend.id} />;
             })}
           </div>
 
           <div className="grey westagramInform">
-            {data.map(data => {
+            {westaData.map(data => {
               return `${data.name} ・ `;
             })}
             <br />
