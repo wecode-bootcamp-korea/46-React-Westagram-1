@@ -31,7 +31,6 @@ const FeedContents = props => {
       comment.push({ id: comment.length, value: inputValue });
       setAddComment(copy);
       setInputValue('');
-      //갑자기 한글만 마지막 글자가 한번 더 출력돼요ㅠㅠ!
     }
   };
 
@@ -49,10 +48,8 @@ const FeedContents = props => {
   const deleteComments = id => {
     let copy = [...comment];
     // let result = copy.filter(el => el !== id); --> 내용이 동일한 댓글은 모두 삭제
-    const result = copy.filter(el => el.id !== id); //id 값으로 특정 댓글만 삭제ㅗ
+    const result = copy.filter(el => el.id !== id); //id 값으로 특정 댓글만 삭제
     setComment(result);
-    //filter로 해보고 싶었는데 실패! filter 다시 찾아보기!!!
-    // !== 로 제외시키는 거 까지는 알겠는데, 인자 전달을 어떻게 해야할지 모르겠음!
   };
 
   return (
@@ -136,7 +133,6 @@ const FeedContents = props => {
           onChange={e => {
             setInputValue(e.target.value);
           }}
-          // onKeyDown={addCommentEnter}
         />
         <button onClick={addComments}>게시</button>
       </form>

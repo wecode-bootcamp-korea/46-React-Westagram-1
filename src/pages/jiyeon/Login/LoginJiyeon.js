@@ -9,10 +9,13 @@ const LoginJiyeon = () => {
   // const [value, setValue] = useState();
   const [userId, setUserId] = useState('');
   const [userPw, setUserPw] = useState('');
-  const [loginBtnstate, setLoginBtnstate] = useState(false);
+  // const [loginBtnstate, setLoginBtnstate] = useState(false);
   const navigate = useNavigate();
   const saveUserId = e => {
     setUserId(e.target.value);
+  };
+  const saveUserPw = e => {
+    setUserPw(e.target.value);
   };
 
   const loginFetch = () => {
@@ -42,10 +45,6 @@ const LoginJiyeon = () => {
       });
   };
 
-  const saveUserPw = e => {
-    setUserPw(e.target.value);
-  };
-
   const loginBtn = () => {
     //if (id.indexOf(@) && pw.length > 4) =>true
     return userId.includes('@') && userPw.length > 4 ? true : false;
@@ -71,7 +70,7 @@ const LoginJiyeon = () => {
         />
         <button
           disabled={!loginBtn()}
-          className={loginBtn() ? 'activeBtn' : ''}
+          className={loginBtn() ? 'activeBtn' : ''} //***
           onClick={loginFetch}
         >
           로그인
