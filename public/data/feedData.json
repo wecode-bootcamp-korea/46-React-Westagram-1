@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "yeon",
+    "profileImg": "/images/jiyeon/KakaoTalk_20230508_214810406.jpg",
+    "feedImg": "/images/jiyeon/cat.jpg",
+    "likeProfileImg": "/images/jiyeon/more_horiz_FILL0_wght400_GRAD0_opsz48.png",
+    "likeName": "aineworld",
+    "likeCount": 10,
+    "feedContents": "세상에서 제일 귀여운 지구😘"
+  },
+  {
+    "id": 2,
+    "name": "helloworld",
+    "profileImg": "/images/jiyeon/KakaoTalk_20230509_143849516.jpg",
+    "feedImg": "/images/jiyeon/KakaoTalk_20230508_214810406.jpg",
+    "likeProfileImg": "/images/jiyeon/more_horiz_FILL0_wght400_GRAD0_opsz48.png",
+    "likeName": "helloworld",
+    "likeCount": 39,
+    "feedContents": "😘 😘 😘 😘 😘 😘 😘"
+  },
+  {
+    "id": 3,
+    "name": "yeonnnnn",
+    "profileImg": "/images/jiyeon/KakaoTalk_20230509_143849516_01.jpg",
+    "feedImg": "images/jiyeon/KakaoTalk_20230509_143849516_01.jpg",
+    "likeProfileImg": "/images/jiyeon/more_horiz_FILL0_wght400_GRAD0_opsz48.png",
+    "likeName": "aineworld",
+    "likeCount": 48,
+    "feedContents": "🥰 🥰 🥰 🥰 🥰"
+  },
+  {
+    "id": 4,
+    "name": "yeon",
+    "profileImg": "/images/jiyeon/KakaoTalk_20230509_143849516_02.jpg",
+    "feedImg": "images/jiyeon/KakaoTalk_20230509_143849516_02.jpg",
+    "likeProfileImg": "/images/jiyeon/more_horiz_FILL0_wght400_GRAD0_opsz48.png",
+    "likeName": "aineworld",
+    "likeCount": 25,
+    "feedContents": "세상에서 제일 귀여운 지구😘"
+  },
+  {
+    "id": 5,
+    "name": "jiguu",
+    "profileImg": "/images/jiyeon/KakaoTalk_20230509_143849516_03.jpg",
+    "feedImg": "images/jiyeon/KakaoTalk_20230509_143849516_03.jpg",
+    "likeProfileImg": "/images/jiyeon/KakaoTalk_20230509_143849516_03.jpg",
+    "likeName": "hellojigu",
+    "likeCount": 30,
+    "feedContents": "🐈"
+  },
+  {
+    "id": 4,
+    "name": "hellojigu",
+    "profileImg": "/images/jiyeon/KakaoTalk_20230509_143849516_04.jpg",
+    "feedImg": "images/jiyeon/KakaoTalk_20230509_143849516.jpg",
+    "likeProfileImg": "/images/jiyeon/more_horiz_FILL0_wght400_GRAD0_opsz48.png",
+    "likeName": "aineworld",
+    "likeCount": 78,
+    "feedContents": "🐱 🐱 🐱"
+  }
+]

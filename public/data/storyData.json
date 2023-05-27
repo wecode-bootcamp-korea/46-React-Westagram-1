@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "yeon",
+    "profileImg": "/images/jiyeon/KakaoTalk_20230508_214810406.jpg",
+    "when": "12분 전"
+  },
+  {
+    "id": 2,
+    "name": "helloworld",
+    "profileImg": "/images/jiyeon/KakaoTalk_20230509_143849516.jpg",
+    "when": "14분 전"
+  },
+  {
+    "id": 3,
+    "name": "yeonnnnn",
+    "profileImg": "/images/jiyeon/KakaoTalk_20230509_143849516_01.jpg",
+    "when": "29분 전"
+  },
+  {
+    "id": 4,
+    "name": "jiguu",
+    "profileImg": "/images/jiyeon/KakaoTalk_20230509_143849516_03.jpg",
+    "when": "36분 전"
+  }
+]
